@@ -22,6 +22,7 @@ from googleapiclient.discovery import build
 
 from blog_auto import config
 from blog_auto.publishers.base import BasePublisher, PublishRequest, PublishResult
+from blog_auto.utils.html_enhance import _enhance_images
 
 _SCOPES = ["https://www.googleapis.com/auth/blogger"]
 _MD_EXTENSIONS = ["tables", "fenced_code", "nl2br"]
@@ -49,9 +50,13 @@ def _get_credentials() -> Credentials:
 class BloggerPublisher(BasePublisher):
     platform = "blogger"
 
+    def __init__(self, blog_id: str | None = None, platform: str = "blogger") -> None:
+        self.blog_id = blog_id or config.BLOGGER_BLOG_ID
+        self.platform = platform
+
     def publish(self, req: PublishRequest) -> PublishResult:
-        if not config.BLOGGER_BLOG_ID:
-            return PublishResult(url=None, ok=False, note="BLOGGER_BLOG_ID 미설정.")
+        if not self.blog_id:
+            return PublishResult(url=None, ok=False, note=f"{self.platform} blog_id 미설정.")
         if not config.BLOGGER_CLIENT_SECRETS:
             return PublishResult(url=None, ok=False, note="BLOGGER_CLIENT_SECRETS 미설정.")
 
@@ -61,12 +66,20 @@ class BloggerPublisher(BasePublisher):
             return PublishResult(url=None, ok=False, note=f"인증 실패: {e}")
 
         html_body = md_lib.markdown(req.body_md, extensions=_MD_EXTENSIONS)
+        html_body = _enhance_images(html_body)
         service = build("blogger", "v3", credentials=creds)
+
+        # Blogger API 는 라벨이 12개 이상이면 400 'invalid argument' 로 거부.
+        # 11개로 cap.
+        labels = list(req.tags or [])
+        if len(labels) > 11:
+            print(f"[warn] Blogger label cap: {len(labels)}개 → 11개로 잘라냄. 잘린 태그: {labels[11:]}")
+            labels = labels[:11]
 
         body: dict = {
             "title": req.title,
             "content": html_body,
-            "labels": req.tags,
+            "labels": labels,
         }
 
         if req.mode == "schedule":
@@ -78,13 +91,34 @@ class BloggerPublisher(BasePublisher):
             if req.mode == "draft":
                 resp = (
                     service.posts()
-                    .insert(blogId=config.BLOGGER_BLOG_ID, body=body, isDraft=True)
+                    .insert(blogId=self.blog_id, body=body, isDraft=True)
+                    .execute()
+                )
+            elif req.mode == "schedule":
+                resp = (
+                    service.posts()
+                    .insert(blogId=self.blog_id, body=body, isDraft=False)
                     .execute()
                 )
             else:
+                # publish: 본문이 크거나 inline style 이 많은 글은 isDraft=False 직접
+                # insert 시 Blogger API 가 400 'invalid argument' 로 거부하는 경우가 있어
+                # draft 로 먼저 만든 뒤 publish 엔드포인트를 호출하는 2단계로 우회.
+                draft_resp = (
+                    service.posts()
+                    .insert(blogId=self.blog_id, body=body, isDraft=True)
+                    .execute()
+                )
+                post_id = draft_resp.get("id")
+                if not post_id:
+                    return PublishResult(
+                        url=None,
+                        ok=False,
+                        note=f"draft 생성 응답에 id 없음: {draft_resp}",
+                    )
                 resp = (
                     service.posts()
-                    .insert(blogId=config.BLOGGER_BLOG_ID, body=body, isDraft=False)
+                    .publish(blogId=self.blog_id, postId=post_id)
                     .execute()
                 )
         except Exception as e:

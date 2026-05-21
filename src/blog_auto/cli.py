@@ -12,12 +12,13 @@ from blog_auto.publishers.naver import NaverPublisher
 from blog_auto.publishers.session import save_session
 from blog_auto.publishers.tistory import TistoryPublisher
 from blog_auto.publishers.base import PublishRequest
+from blog_auto.utils.broker_assets import inject_broker_assets
 
-app = typer.Typer(help="AI blog automation (Tistory + Naver + Blogger)")
+app = typer.Typer(help="AI blog automation (Tistory + Naver + Blogger + Blogger Stocks)")
 
 
-Platform = Literal["tistory", "naver", "blogger"]
-_ALL_PLATFORMS: list[Platform] = ["tistory", "naver", "blogger"]
+Platform = Literal["tistory", "naver", "blogger", "blogger_stocks"]
+_ALL_PLATFORMS: list[Platform] = ["tistory", "naver", "blogger", "blogger_stocks"]
 _PLAYWRIGHT_PLATFORMS = {"tistory", "naver"}
 
 
@@ -35,15 +36,17 @@ def login(platform: str = typer.Argument(..., help="tistory | naver | both")):
 @app.command()
 def generate_post(
     topic: str = typer.Argument(..., help="글 주제"),
-    platform: str = typer.Option("tistory", help="tistory | naver | blogger | all"),
+    platform: str = typer.Option("tistory", help="tistory | naver | blogger | blogger_stocks | all"),
     context: str = typer.Option("", help="추가 컨텍스트/배경"),
     no_critic: bool = typer.Option(False, help="크리틱/리바이즈 단계 스킵 (빠름/저렴)"),
+    cpc: bool = typer.Option(False, "--cpc", help="CPC 고단가 모드 (style/cpc_strategy.md + 플랫폼 CPC 친화 주제풀 적용)"),
 ):
     """주제를 받아 파이프라인으로 초안 생성 (posts/_drafts/ 저장)."""
     targets: list[Platform] = _ALL_PLATFORMS if platform == "all" else [platform]  # type: ignore[list-item]
     for p in targets:
-        print(f"[bold cyan]>>> generating for {p}[/]")
-        post = generate(topic=topic, platform=p, context=context, use_critic=not no_critic)
+        mode_tag = " [CPC]" if cpc else ""
+        print(f"[bold cyan]>>> generating for {p}{mode_tag}[/]")
+        post = generate(topic=topic, platform=p, context=context, use_critic=not no_critic, cpc_mode=cpc)
         path = save_draft(post)
         print(f"  saved: {path}")
         if post.critique:
@@ -73,11 +76,14 @@ def publish(
 
     tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
 
+    body = inject_broker_assets(body)
+
     if mode == "schedule" and not at:
         raise typer.BadParameter("schedule 모드는 --at RFC3339 시간 필요. 예: --at 2026-05-06T08:00:00+09:00")
 
+    title = meta.get("title", "(제목 없음)").strip().strip('"').strip("'")
     req = PublishRequest(
-        title=meta.get("title", "(제목 없음)"),
+        title=title,
         body_md=body,
         tags=tags,
         category=meta.get("category", ""),
@@ -90,6 +96,8 @@ def publish(
     platform_name = meta.get("platform", "tistory")
     if platform_name == "blogger":
         pub = BloggerPublisher()
+    elif platform_name == "blogger_stocks":
+        pub = BloggerPublisher(blog_id=config.BLOGGER_STOCKS_BLOG_ID, platform="blogger_stocks")
     elif platform_name == "naver":
         pub = NaverPublisher()
     else:
