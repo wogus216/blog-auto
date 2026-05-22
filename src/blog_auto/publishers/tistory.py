@@ -254,17 +254,18 @@ class TistoryPublisher(BasePublisher):
                 from datetime import datetime
                 dt = datetime.fromisoformat(req.schedule_at)
 
-                # 광범위한 dump (input + select)
+                # 광범위한 dump (input + select + button — calendar trigger 포함)
                 all_dt_dump = page.evaluate(
-                    """() => Array.from(document.querySelectorAll('input, select')).filter(el => {
+                    """() => Array.from(document.querySelectorAll('input, select, button, [class*="cal"], [class*="picker"], [data-toggle], [aria-haspopup]')).filter(el => {
                         const r = el.getBoundingClientRect();
                         return r.width > 0 && r.height > 0;
                     }).map(el => ({
                         tag: el.tagName, id: el.id, name: el.name,
                         type: el.tagName === 'SELECT' ? 'select' : (el.type || ''),
-                        value: el.value, className: el.className || ''
+                        value: el.value, className: el.className || '',
+                        text: (el.innerText||'').trim().slice(0, 30)
                     })).filter(x =>
-                        /date|publish|time|year|month|day|hour|minute|reserv/i.test(
+                        /date|publish|time|year|month|day|hour|minute|reserv|cal|picker/i.test(
                             (x.id||'') + ' ' + (x.name||'') + ' ' + (x.className||'')
                         )
                     )"""
@@ -298,26 +299,54 @@ class TistoryPublisher(BasePublisher):
                 minute_ok = set_value("#dateMinute", str(dt.minute))
                 print(f"[DEBUG] hour={dt.hour} ok={hour_ok}, minute={dt.minute} ok={minute_ok}")
 
-                # 날짜 — 후보 선택자 순회
+                # 날짜 — 후보 선택자 순회 + datetime-local 단일 입력 fallback
                 year_ok = (
                     set_value("#dateYear", str(dt.year))
                     or set_value("select[name='dateYear']", str(dt.year))
                     or set_value("input[name='dateYear']", str(dt.year))
+                    or set_value("select#year", str(dt.year))
                 )
                 month_ok = (
                     set_value("#dateMonth", str(dt.month))
                     or set_value("select[name='dateMonth']", str(dt.month))
                     or set_value("input[name='dateMonth']", str(dt.month))
+                    or set_value("select#month", str(dt.month))
                 )
                 day_ok = (
                     set_value("#dateDay", str(dt.day))
                     or set_value("select[name='dateDay']", str(dt.day))
                     or set_value("input[name='dateDay']", str(dt.day))
+                    or set_value("select#day", str(dt.day))
                 )
                 print(f"[DEBUG] year={dt.year} ok={year_ok}, month={dt.month} ok={month_ok}, day={dt.day} ok={day_ok}")
 
+                # 단일 datetime-local input 또는 date input fallback
+                if not (year_ok and month_ok and day_ok):
+                    iso_date = f"{dt.year:04d}-{dt.month:02d}-{dt.day:02d}"
+                    iso_datetime = f"{iso_date}T{dt.hour:02d}:{dt.minute:02d}"
+                    date_fallback = (
+                        set_value("input[type='datetime-local']", iso_datetime)
+                        or set_value("input[type='date']", iso_date)
+                        or set_value("input[name*='date']:not([name*='Hour']):not([name*='Minute'])", iso_date)
+                    )
+                    if date_fallback:
+                        year_ok = month_ok = day_ok = True
+                        print(f"[DEBUG] 날짜 fallback 성공: {iso_datetime}")
+
+                # 시간만 통과하고 날짜 미적용이면 잘못된 시각에 발행되므로 명시적 중단
+                # (실제 사례: 5/22 11:25에 등록 시 5/23·24·25·26 예약이 모두 5/22 11:25에 발행됨)
                 if not (hour_ok and minute_ok):
                     return PublishResult(url=None, ok=False, note=f"시간 입력 실패 — dump 확인 (target={dt.isoformat()})")
+                if not (year_ok and month_ok and day_ok):
+                    return PublishResult(
+                        url=None,
+                        ok=False,
+                        note=(
+                            f"날짜 셀렉터 미적용 — 시간만 적용되면 가장 가까운 시각으로 잘못 발행됨. "
+                            f"발행 중단 (target={dt.isoformat()}). 위 'datetime input 후보' / '모든 날짜/시간 후보' "
+                            f"dump 로 실제 Tistory 캘린더 UI 셀렉터 확인 후 코드 수정 필요."
+                        ),
+                    )
                 self.tiny_pause()
 
                 page.click("#publish-btn")
