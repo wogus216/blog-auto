@@ -24,7 +24,7 @@ from blog_auto.utils.images import (
 )
 
 
-Platform = Literal["tistory", "naver", "blogger"]
+Platform = Literal["tistory", "naver", "blogger", "blogger_stocks"]
 
 
 @dataclass
@@ -50,11 +50,15 @@ def _load_style(platform: Platform | None = None) -> dict[str, str]:
         "structure": (config.STYLE_DIR / "structure.md").read_text(encoding="utf-8"),
         "banned": (config.STYLE_DIR / "banned.md").read_text(encoding="utf-8"),
         "platform_context": "",
+        "cpc_strategy": "",
     }
     if platform:
         ctx_path = config.STYLE_DIR / f"{platform}_context.md"
         if ctx_path.exists():
             style["platform_context"] = ctx_path.read_text(encoding="utf-8")
+    cpc_path = config.STYLE_DIR / "cpc_strategy.md"
+    if cpc_path.exists():
+        style["cpc_strategy"] = cpc_path.read_text(encoding="utf-8")
     return style
 
 
@@ -161,6 +165,7 @@ def generate(
     context: str = "",
     *,
     use_critic: bool = True,
+    cpc_mode: bool = False,
 ) -> GeneratedPost:
     style = _load_style(platform)
     examples = _load_examples()
@@ -180,6 +185,8 @@ def generate(
         context=merged_context,
         voice=style["voice"],
         structure=style["structure"],
+        cpc_mode=cpc_mode,
+        cpc_strategy=style["cpc_strategy"],
     )
     outline = json.loads(_strip_json_fence(_call(client, outline_prompt, max_tokens=1500)))
 

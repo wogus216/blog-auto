@@ -11,23 +11,35 @@
 {{ topic }}
 
 ## 타겟 플랫폼
-{{ platform }}  {# tistory | naver #}
+{{ platform }}  {# tistory | naver | blogger | blogger_stocks #}
 
 ## 추가 컨텍스트
 {{ context or "(없음)" }}
+
+{% if cpc_mode %}
+## CPC 고단가 전략 (이 모드에서 반드시 적용)
+{{ cpc_strategy }}
+
+### CPC 모드 추가 요구사항
+- 제목에 구매·결정 의도 키워드 1개 이상 포함 ("추천", "비교", "TOP", "후기", "가격", "방법", "조건", "신청")
+- 섹션 5~7개 (광고 슬롯 확보용). 각 섹션은 본문 200자 이상 작성 가능한 정보 밀도여야 함.
+- 비교/체크리스트/FAQ 섹션 중 최소 1개 포함.
+- 플랫폼 컨텍스트의 "CPC 친화 주제풀"에 매핑되는 각도로 잡을 것.
+- YMYL 주제는 단정형 금지, 글 말미에 면책 한 줄 포함하도록 outline에 표시.
+{% endif %}
 
 ---
 
 다음 JSON만 출력하라. 앞뒤에 어떤 설명도 붙이지 마라.
 
 {
-  "title": "제목 (플랫폼 SEO 고려, 30자 내외)",
+  "title": "제목 (플랫폼 SEO 고려{% if cpc_mode %}, CPC 친화 키워드 포함{% endif %}, 30~40자)",
   "hook": "독자를 끌어당길 도입부 2~3문장",
   "sections": [
     {"h2": "섹션 제목", "points": ["다룰 포인트 1", "포인트 2"]},
     ...
   ],
-  "tags": ["태그1", "태그2", "태그3"],
+  "tags": ["태그1", "태그2", "태그3"{% if cpc_mode %}, "...(CPC 친화 태그 1~2개 포함)"{% endif %}],
   "category": "추천 카테고리",
   "image_query": "대표 사진을 검색할 영어 키워드 2~4단어 (Openverse 검색용, 추상 개념보다 실물 명사 위주. 예: 'baseball stadium night', 'running shoes asphalt', 'korean stock market chart')",
   "image_queries": ["본문 섹션 분산 삽입용 한국어 검색어 3개 (Google Images 검색용, 글의 주요 H2 토픽과 매칭되는 구체적 명사구. 예: '광주 챔피언스필드 좌석', 'KIA 타이거즈 응원', '광주 야구장 외부')"]

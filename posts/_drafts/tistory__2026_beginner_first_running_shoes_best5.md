@@ -1,9 +1,11 @@
 ---
-title: 2026 입문자·초보 첫 러닝화 BEST 5 — 노바블라스트 5·페가수스 42·클리프톤 10·1080 v14·아디오스 9 (가격·발 모양·구매 팁)
+title: 첫 러닝화 뭐 사지? — 입문자 실패 안 하는 BEST 5 (발 모양·체중별 30초 추천)
 platform: tistory
 category: 러닝/장비
 tags: ['러닝화추천', '입문러닝화', '초보러닝화', '첫러닝화', '노바블라스트5', '페가수스42', '클리프톤10', '뉴발란스1080v14', '슈퍼노바라이즈', '데일리트레이너', '쿠셔닝러닝화', '러닝화BEST5', '2026러닝화']
 ---
+
+러닝 시작하려고 검색하면 추천 신발이 수십 개씩 쏟아져서 더 막막하죠. **입문자가 첫 켤레로 실패 안 할 5개**만, 발 모양·체중별로 추렸습니다.
 
 2024년에 한 번 정리했던 입문자 첫 러닝화 BEST 5를 2026년 5월 기준으로 다시 쓴다. 라인업이 1년 반 만에 꽤 바뀌었다. **아식스 노바블라스트는 5세대 그대로**, 나이키 페가수스는 41 → **42**, 호카 클리프톤은 9 → **10**, 뉴발란스 1080은 **v14**까지 왔다. 푸마 벨로시티 자리에는 아디다스 슈퍼노바 라이즈가 들어왔다.
 
@@ -55,6 +57,8 @@ tags: ['러닝화추천', '입문러닝화', '초보러닝화', '첫러닝화', 
 | **아디다스 슈퍼노바 라이즈** | 약 169,000원 | 약 290g | 38/28mm | 10mm | Dreamstrike+ | 데일리 + 약간의 반발 |
 
 가격은 한국 정가 기준 참고치다. 시즌·이벤트·매장에 따라 매번 바뀌므로 모델 정해지면 **무신사·쿠팡·각 브랜드 공식몰** 가격을 한 번 더 확인하자. 일반적으로 정가 대비 20~30% 할인은 자주 보이는 수준이다.
+
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 첫 러닝화, 브랜드별로 더 비교하고 싶다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">발 모양·페이스대별 매칭 가이드를 한곳에서</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
 
 ## 1. 아식스 노바블라스트 5 — 입문 표준 (Recommended)
 

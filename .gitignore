@@ -15,6 +15,9 @@ posts/_published/
 
 credentials/
 
+# 이미지 호스팅용 별도 git repo (wogus216/blog-assets)
+assets/
+
 .ruff_cache/
 .pytest_cache/
 .DS_Store

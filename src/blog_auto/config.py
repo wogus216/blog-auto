@@ -16,6 +16,7 @@ ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-7")
 TISTORY_BLOG_NAME = os.environ.get("TISTORY_BLOG_NAME", "")
 NAVER_BLOG_ID = os.environ.get("NAVER_BLOG_ID", "")
 BLOGGER_BLOG_ID = os.environ.get("BLOGGER_BLOG_ID", "6566918690057179781")
+BLOGGER_STOCKS_BLOG_ID = os.environ.get("BLOGGER_STOCKS_BLOG_ID", "")
 BLOGGER_CLIENT_SECRETS = os.environ.get("BLOGGER_CLIENT_SECRETS", "credentials/blogger_client_secrets.json")
 
 PUBLISH_MODE = os.environ.get("PUBLISH_MODE", "draft")  # draft | publish

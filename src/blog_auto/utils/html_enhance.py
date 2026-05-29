@@ -123,6 +123,31 @@ def _enhance_headings(html: str) -> str:
     return html
 
 
+def _enhance_images(html: str) -> str:
+    """`<img>`에 max-width:100% inline style 주입 — 티스토리 본문 폭(~750px) 오버플로 방지.
+    이미 style 속성이 있으면 그 안에 prepend.
+    """
+    img_style = (
+        "max-width:100%;height:auto;display:block;"
+        "margin:24px auto;border-radius:8px;"
+        "box-shadow:0 2px 8px rgba(0,0,0,0.08);"
+    )
+
+    def repl(m: re.Match[str]) -> str:
+        tag = m.group(0)
+        attrs = m.group(1)
+        style_m = re.search(r'style="([^"]*)"', attrs)
+        if style_m:
+            existing = style_m.group(1).rstrip(";")
+            new_style = f"{img_style}{existing};"
+            attrs = attrs.replace(style_m.group(0), f'style="{new_style}"')
+        else:
+            attrs = attrs.rstrip() + f' style="{img_style}"'
+        return f"<img{attrs}>"
+
+    return re.sub(r"<img((?:\s+[^>]*?)?)\s*/?>", repl, html)
+
+
 def _enhance_checklist(html: str) -> str:
     """- [ ] / - [x] 체크리스트를 카드 안에 묶음."""
     pattern = re.compile(
@@ -198,6 +223,7 @@ def enhance(html: str, *, cta_url: str | None = None, cta_text: str | None = Non
     html = _enhance_blockquotes(html)
     html = _enhance_headings(html)
     html = _enhance_checklist(html)
+    html = _enhance_images(html)
 
     toc = _build_toc(html)
     cta = _build_cta(cta_text or "🔗 자세한 정보 확인하기", cta_url) if cta_url else ""

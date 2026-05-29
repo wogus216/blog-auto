@@ -1,9 +1,11 @@
 ---
-title: 러닝 입문 6개월차에 가장 흔한 부상 5가지 — 장경인대·족저근막염·정강이 통증·아킬레스건염·러너스 무릎 (증상·원인·예방·회복 완전 정리)
+title: 러닝 6개월차에 꼭 다친다 — 흔한 부상 5가지, 신호 오기 전에 막는 법
 platform: tistory
 category: 러닝/부상
 tags: ['러닝부상', '러닝부상예방', '장경인대증후군', '족저근막염', '정강이통증', '아킬레스건염', '러너스무릎', '러닝입문', '10퍼센트룰', '폼롤러', '러닝회복']
 ---
+
+**입문하고 반년쯤, "이제 좀 뛰네" 싶을 때가 제일 위험합니다.** 부상은 보통 그때 옵니다.
 
 러닝을 시작한 지 3~6개월. 5km는 무리 없이 뛰고, 10km도 슬슬 욕심나기 시작하는 시점이다. 정확히 이때 **부상이 가장 많이 발생한다**. 입문 1~2개월은 몸이 풀리는 단계라 자연스럽게 거리를 조절하지만, 6개월차에는 "이 정도는 되겠지" 하며 거리·페이스를 무리하게 올리다가 무릎·발바닥·정강이가 무너진다.
 
@@ -171,6 +173,8 @@ tags: ['러닝부상', '러닝부상예방', '장경인대증후군', '족저근
 - 통증 없는 범위에서 **자전거·수영 등 크로스 트레이닝**
 - 점진적 근력 운동으로 복귀
 - 2주 이상 지속되면 진료 권장
+
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 내 발·부상 패턴에 맞는 러닝화가 궁금하다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">평발·과회내·체중별 신발 매칭이 부상 예방의 절반</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 찾기 →</a></div>
 
 ## 🛡️ 5가지 부상을 한꺼번에 예방하는 4대 원칙
 
