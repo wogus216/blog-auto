@@ -1,0 +1,154 @@
+{
+  "_description": "캡처 대상 페이지 정의. 각 항목은 capture_brokers.py 가 Playwright로 방문해서 PNG 캡처 → assets/captures/{key}.png 저장 → GitHub push → raw URL 생성. 변경 가능. URL은 정책상 안내·고객센터·공지처럼 공개 정보 페이지로 한정 (로그인 필요 페이지 금지).",
+  "_url_format": "raw.githubusercontent.com/wogus216/blog-assets/main/captures/{key}.png",
+  "pages": [
+    {
+      "key": "toss_us_fee",
+      "broker": "토스증권",
+      "topic": "미국주식 수수료율 안내",
+      "url": "https://corp.tossinvest.com/ko/post?type=notice&id=17106&category=52",
+      "selector": "body",
+      "wait_ms": 5000,
+      "note": "토스증권 공식 공지 (미국주식 표준 위탁수수료율 변경 안내, 2025-12 시행). SPA라 wait 길게."
+    },
+    {
+      "key": "miraeasset_us_fee",
+      "broker": "미래에셋증권",
+      "topic": "해외주식 통화별 수수료/예탁금이용료",
+      "url": "https://securities.miraeasset.com/hki/hki3098/n06.do",
+      "selector": "body",
+      "wait_ms": 3500,
+      "note": "(구) 미래에셋대우 트레이딩 가이드. 통화별 매매수수료/예탁금이용료 표 포함."
+    },
+    {
+      "key": "kiwoom_us_fee",
+      "broker": "키움증권",
+      "topic": "해외주식 거래수수료 + 환전우대 이벤트",
+      "url": "https://i.kiwoom.com/2022_007",
+      "selector": "body",
+      "wait_ms": 5000,
+      "note": "키움 www.kiwoom.com deep link는 봇 차단(CD-14000). 이벤트 서브도메인(i.kiwoom.com)으로 우회. 실제 수수료율(0.07%)+환전우대(95%) 정보 명시."
+    },
+    {
+      "key": "koreainvest_us_fee",
+      "broker": "한국투자증권",
+      "topic": "해외주식 매매 안내 (수수료 포함)",
+      "url": "https://securities.koreainvestment.com/main/bond/research/_static/TF03ca050000.jsp",
+      "selector": "body",
+      "wait_ms": 3500,
+      "note": "한투 공식 시장별 매매안내. 본문에 시장별 수수료율 표 포함."
+    },
+    {
+      "key": "sol_ai_semi_top2",
+      "broker": "신한자산운용 SOL ETF",
+      "topic": "SOL AI반도체TOP2플러스 (0167A0) 상품 페이지",
+      "url": "https://www.soletf.com/ko/fund/etf/211106",
+      "selector": "body",
+      "wait_ms": 4000,
+      "full_page": false,
+      "note": "SOL ETF 공식 SOL AI반도체TOP2플러스 상품 상세."
+    },
+    {
+      "key": "naver_etf_main",
+      "broker": "네이버 금융",
+      "topic": "국내 ETF 시세",
+      "url": "https://finance.naver.com/sise/etf.naver",
+      "selector": "body",
+      "wait_ms": 4000,
+      "full_page": false,
+      "note": "네이버 금융 ETF 시세 메인. 페이지 너무 길어 viewport만 캡처."
+    },
+    {
+      "key": "stockanalysis_us_etfs",
+      "broker": "StockAnalysis.com",
+      "topic": "US ETF Screener",
+      "url": "https://stockanalysis.com/etf/screener/",
+      "selector": "body",
+      "wait_ms": 4000,
+      "full_page": false,
+      "note": "StockAnalysis.com ETF 스크리너. 미국 ETF 글 캡처용 (Investing.com 폰트 타임아웃)."
+    },
+    {
+      "key": "musinsa_nike_running",
+      "broker": "무신사",
+      "topic": "나이키 러닝화 검색 결과",
+      "url": "https://www.musinsa.com/search/goods?keyword=%EB%82%98%EC%9D%B4%ED%82%A4%20%EB%9F%AC%EB%8B%9D%ED%99%94",
+      "selector": "body",
+      "wait_ms": 10000,
+      "note": "나이키 공식 KR 봇 차단 가능성 — 무신사 검색으로 우회. 동적 로딩 길어 wait 10s."
+    },
+    {
+      "key": "runrepeat_nike_guide",
+      "broker": "RunRepeat",
+      "topic": "Best Nike Running Shoes 2026",
+      "url": "https://runrepeat.com/guides/best-nike-running-shoes",
+      "selector": "body",
+      "wait_ms": 4000,
+      "note": "RunRepeat 베스트 나이키 러닝화 가이드."
+    },
+    {
+      "key": "musinsa_adidas_running",
+      "broker": "무신사",
+      "topic": "아디다스 러닝화 검색 결과",
+      "url": "https://www.musinsa.com/search/goods?keyword=%EC%95%84%EB%94%94%EB%8B%A4%EC%8A%A4%20%EB%9F%AC%EB%8B%9D%ED%99%94",
+      "selector": "body",
+      "wait_ms": 5000,
+      "note": "아디다스 공식 KR/US는 403 봇 차단. 무신사 검색 결과로 우회 (한국 가격대 노출)."
+    },
+    {
+      "key": "runrepeat_adidas_guide",
+      "broker": "RunRepeat",
+      "topic": "Best Adidas Running Shoes 2026",
+      "url": "https://runrepeat.com/guides/best-adidas-running-shoes",
+      "selector": "body",
+      "wait_ms": 4000,
+      "note": "RunRepeat의 베스트 아디다스 러닝화 가이드. 글로벌 분석 톤에 적합."
+    },
+    {
+      "key": "applyhome_main",
+      "broker": "청약홈",
+      "topic": "청약 신청 안내",
+      "url": "https://www.applyhome.co.kr/",
+      "selector": "body",
+      "wait_ms": 4000,
+      "note": "한국부동산원 청약홈 메인. 입주자모집공고/청약일정 진입 페이지."
+    },
+    {
+      "key": "hf_bogeumjari",
+      "broker": "한국주택금융공사",
+      "topic": "보금자리론 상품 소개",
+      "url": "https://www.hf.go.kr/ko/sub01/sub01_01_01.do",
+      "selector": "body",
+      "wait_ms": 3500,
+      "note": "HF 공식 보금자리론 일반 상품소개 페이지."
+    },
+    {
+      "key": "fund_didimdol",
+      "broker": "주택도시기금",
+      "topic": "내집마련 디딤돌대출 안내",
+      "url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030102.jsp",
+      "selector": "body",
+      "wait_ms": 3500,
+      "note": "주택도시기금 공식 디딤돌대출 이용절차/제출서류 페이지."
+    },
+    {
+      "key": "fund_botomok_newlywed",
+      "broker": "주택도시기금",
+      "topic": "신혼부부 버팀목 전세자금대출 안내",
+      "url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020401.jsp",
+      "selector": "body",
+      "wait_ms": 3500,
+      "note": "주택도시기금 공식 신혼부부 버팀목 전세자금대출 페이지."
+    },
+    {
+      "key": "nh_us_fee",
+      "broker": "NH투자증권",
+      "topic": "해외주식 수수료 안내",
+      "url": "https://m.nhsec.com/guide/MNHSI1039",
+      "selector": "body",
+      "wait_ms": 3500,
+      "viewport": {"width": 420, "height": 900},
+      "note": "NH투자증권은 nhqv.com → nhsec.com 으로 도메인 이전. 모바일 페이지(MNHSI1039)가 명확한 해외주식 수수료 안내 페이지. PC 동일 페이지 미공개."
+    }
+  ]
+}
