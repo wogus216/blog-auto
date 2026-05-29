@@ -10,12 +10,11 @@ venv/
 
 sessions/*.json
 sessions/*-profile/
-posts/_drafts/
 posts/_published/
 
 credentials/
 
-# 이미지 호스팅용 별도 git repo (wogus216/blog-assets)
+# 이미지 호스팅용 별도 git repo (wogus216/blog-assets) — 중첩 repo라 blog-auto에선 추적 안 함
 assets/
 
 .ruff_cache/
