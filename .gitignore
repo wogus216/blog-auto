@@ -21,3 +21,7 @@ assets/
 .ruff_cache/
 .pytest_cache/
 .DS_Store
+
+# Node / Playwright MCP (임시 스크린샷·스냅샷)
+node_modules/
+.playwright-mcp/
