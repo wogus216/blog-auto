@@ -147,8 +147,21 @@
       "url": "https://m.nhsec.com/guide/MNHSI1039",
       "selector": "body",
       "wait_ms": 3500,
-      "viewport": {"width": 420, "height": 900},
+      "viewport": {
+        "width": 420,
+        "height": 900
+      },
       "note": "NH투자증권은 nhqv.com → nhsec.com 으로 도메인 이전. 모바일 페이지(MNHSI1039)가 명확한 해외주식 수수료 안내 페이지. PC 동일 페이지 미공개."
+    },
+    {
+      "key": "kodex_ai_semi_top2",
+      "broker": "삼성자산운용 KODEX",
+      "topic": "KODEX AI반도체TOP2플러스 (395160) 상품 페이지",
+      "url": "https://www.samsungfund.com/etf/product/view.do?id=2ETFE9",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "KODEX 공식 AI반도체TOP2플러스 상품 상세. 5/13 리뉴얼·삼성전기 편입."
     }
   ]
 }
