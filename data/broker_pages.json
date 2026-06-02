@@ -242,6 +242,36 @@
       "wait_ms": 5000,
       "full_page": false,
       "note": "가민 런 코리아 공동주관 러너블. 대회 접수 플랫폼."
+    },
+    {
+      "key": "bunyangi_main",
+      "broker": "분양알리미",
+      "topic": "전국 신규 분양·청약 일정",
+      "url": "https://www.bunyangi.com/",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "분양알리미 전국 분양 정보·청약 일정·입지 분석."
+    },
+    {
+      "key": "asil_main",
+      "broker": "아실",
+      "topic": "아파트 시세·매물 분석",
+      "url": "https://asil.kr/",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "아실(asil.kr) 매매·전세 시세 그래프·단지 분석."
+    },
+    {
+      "key": "hogangnono_offer",
+      "broker": "호갱노노",
+      "topic": "전국 분양 정보",
+      "url": "https://hogangnono.com/offer/commercial?regionCode=all",
+      "selector": "body",
+      "wait_ms": 5500,
+      "full_page": false,
+      "note": "호갱노노 전국 분양/입주 정보."
     }
   ]
 }
