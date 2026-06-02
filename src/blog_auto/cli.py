@@ -17,8 +17,8 @@ from blog_auto.utils.broker_assets import inject_broker_assets
 app = typer.Typer(help="AI blog automation (Tistory + Naver + Blogger + Blogger Stocks)")
 
 
-Platform = Literal["tistory", "naver", "blogger", "blogger_stocks"]
-_ALL_PLATFORMS: list[Platform] = ["tistory", "naver", "blogger", "blogger_stocks"]
+Platform = Literal["tistory", "naver", "blogger", "blogger_stocks", "blogger_money"]
+_ALL_PLATFORMS: list[Platform] = ["tistory", "naver", "blogger", "blogger_stocks", "blogger_money"]
 _PLAYWRIGHT_PLATFORMS = {"tistory", "naver"}
 
 
@@ -98,6 +98,8 @@ def publish(
         pub = BloggerPublisher()
     elif platform_name == "blogger_stocks":
         pub = BloggerPublisher(blog_id=config.BLOGGER_STOCKS_BLOG_ID, platform="blogger_stocks")
+    elif platform_name == "blogger_money":
+        pub = BloggerPublisher(blog_id=config.BLOGGER_MONEY_BLOG_ID, platform="blogger_money")
     elif platform_name == "naver":
         pub = NaverPublisher()
     else:

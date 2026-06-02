@@ -202,6 +202,16 @@
       "wait_ms": 4500,
       "full_page": false,
       "note": "청약홈 청약자격 안내 페이지. 무순위 자격요건 공식 안내."
+    },
+    {
+      "key": "hoban_pungmu2_official",
+      "broker": "호반써밋 풍무Ⅱ",
+      "topic": "호반써밋 풍무Ⅱ 공식 안내 페이지",
+      "url": "https://www.hobansummit-pungmu2.com/",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "호반건설 김포풍무 C5블록 호반써밋 풍무Ⅱ 공식 분양 안내."
     }
   ]
 }
