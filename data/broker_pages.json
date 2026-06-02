@@ -162,6 +162,26 @@
       "wait_ms": 4500,
       "full_page": false,
       "note": "KODEX 공식 AI반도체TOP2플러스 상품 상세. 5/13 리뉴얼·삼성전기 편입."
+    },
+    {
+      "key": "kodex_200_weekly_coveredcall",
+      "broker": "삼성자산운용 KODEX",
+      "topic": "KODEX 200타겟위클리커버드콜 (498400) 상품 페이지",
+      "url": "https://www.samsungfund.com/etf/product/view.do?id=2ETFP4",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "코스피200 기초 위클리 커버드콜. 월배당·목표분배율 대표 상품."
+    },
+    {
+      "key": "tiger_us_nasdaq100_daily_coveredcall",
+      "broker": "미래에셋 TIGER",
+      "topic": "TIGER 미국나스닥100타겟데일리커버드콜 상품 페이지",
+      "url": "https://investments.miraeasset.com/tigeretf/ko/product/search/detail/index.do?ksdFund=KR7486290000",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "나스닥100 기초 데일리 커버드콜. 순자산 1.8조 규모(2026-06)."
     }
   ]
 }
