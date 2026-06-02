@@ -182,6 +182,26 @@
       "wait_ms": 5000,
       "full_page": false,
       "note": "나스닥100 기초 데일리 커버드콜. 순자산 1.8조 규모(2026-06)."
+    },
+    {
+      "key": "applyhome_calendar",
+      "broker": "청약홈",
+      "topic": "APT 청약캘린더 (무순위·일반 일정)",
+      "url": "https://www.applyhome.co.kr/ai/aib/selectSubscrptCalenderView.do",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "한국부동산원 청약홈 청약캘린더. 월별 청약 일정 확인."
+    },
+    {
+      "key": "applyhome_unranked_qualf",
+      "broker": "청약홈",
+      "topic": "무순위 청약 자격요건 안내",
+      "url": "https://www.applyhome.co.kr/ar/ara/selectSubscrptIntroQualfView.do",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "청약홈 청약자격 안내 페이지. 무순위 자격요건 공식 안내."
     }
   ]
 }
