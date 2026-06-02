@@ -212,6 +212,36 @@
       "wait_ms": 5000,
       "full_page": false,
       "note": "호반건설 김포풍무 C5블록 호반써밋 풍무Ⅱ 공식 분양 안내."
+    },
+    {
+      "key": "seonsa_marathon_official",
+      "broker": "선사마라톤",
+      "topic": "제20회 선사마라톤축제 공식 홈페이지",
+      "url": "http://www.gomarathon.co.kr/",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "선사마라톤 공식(고마라톤). 2026 제20회 신청·코스 안내."
+    },
+    {
+      "key": "marathongo_domestic",
+      "broker": "마라톤GO",
+      "topic": "국내 마라톤 대회 일정",
+      "url": "https://marathongo.co.kr/raceSchedule/domestic",
+      "selector": "body",
+      "wait_ms": 4500,
+      "full_page": false,
+      "note": "국내 마라톤 대회 일정 포털. 가을 대회 캘린더 확인용."
+    },
+    {
+      "key": "runable_main",
+      "broker": "러너블(Runnable)",
+      "topic": "가민 런 코리아 신청 플랫폼",
+      "url": "https://runable.me/",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "가민 런 코리아 공동주관 러너블. 대회 접수 플랫폼."
     }
   ]
 }
