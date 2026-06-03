@@ -272,6 +272,16 @@
       "wait_ms": 5500,
       "full_page": false,
       "note": "호갱노노 전국 분양/입주 정보."
+    },
+    {
+      "key": "asics_novablast6",
+      "broker": "ASICS",
+      "topic": "노바블라스트 6 공식 제품 페이지",
+      "url": "https://www.asics.com/kr/ko-kr/novablast-6/",
+      "selector": "body",
+      "wait_ms": 5000,
+      "full_page": false,
+      "note": "아식스 노바블라스트6 공식. 7/6 출시 예정이라 페이지 없을 수 있음."
     }
   ]
 }

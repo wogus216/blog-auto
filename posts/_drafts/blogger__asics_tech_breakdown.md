@@ -172,6 +172,7 @@ GT-2000·GEL-Kayano 라인은 시장에서 **안정성 카테고리의 명가**�
 | 2023 | **FF Turbo Plus** (배합 개선) + 가벼움 | MetaSpeed Sky Paris, Edge Paris | 약 200g대 진입, Tigist Assefa 풀 PB 동행 (Sky Paris) |
 | 2024 | **FF Blast Plus Eco** (친환경 PEBA blend) | Novablast 5, Nimbus 27 | 데일리 라인 친환경 + PEBA blend 안정화 |
 | 2025 | **Pure-GEL** 시스템 통합 | Nimbus 27, Kayano 31 | Gel 시스템과 PEBA blend 폼의 결합 안정화 |
+| 2026 | **FF Turbo Squared** 포어풋 적용 (듀얼폼) | **Novablast 6** (7/6 출시) | 데일리 라인에 트램폴린 팟 도입 — 힐 FF Blast Max + 포어풋 FF Turbo Squared로 반발 강화 |
 
 이 흐름의 핵심은 세 가지: ① **Gel 시스템은 40년 시그니처로 유지** — PEBA 슈퍼폼 시대에도 데일리·안정성 라인의 핵심 차별점, ② **2021년 슈퍼슈 시장 진입 + 폼별 분기 시스템 도입** — 다른 브랜드와 가장 다른 차별점, ③ **듀얼 폼 시스템 (Magic Speed)** — 보급형 카본의 누적 거리 강점.
 
