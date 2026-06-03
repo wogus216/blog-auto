@@ -29,6 +29,10 @@
   --multiplex         글 끝 (참고자료/JSON-LD 직전) 에 멀티플렉스 광고 추가
   --no-inarticle      인-아티클 광고 비활성화 (멀티플렉스만)
   --inarticle-count N 자동 결정 대신 강제 개수
+  --auto-ads          자동광고 병행(밀도제어) 모드. 테마 head 자동광고가 본문을
+                      알아서 채우므로 수동 인-아티클을 1개로 cap → AdSense 과밀/
+                      정책 위반 방지. 하단 멀티플렉스는 그대로 유지.
+                      (--inarticle-count 를 명시하면 그 값을 우선)
   --dry-run           변경사항 미리보기
   -o, --output PATH   다른 경로에 저장
   --force             기존에 광고 코드 있어도 추가 삽입
@@ -49,6 +53,7 @@ PLATFORM_AD_FILE = {
     "tistory": "tistory",
     "blogger": "blogger",
     "blogger_stocks": "blogger",
+    "blogger_money": "blogger",  # money.onestepblog.info — blogger 광고 HTML 공용 (ca-pub 동일)
 }
 NO_AD_PLATFORMS = {"naver"}  # SmartEditor 가 script/ins 제거
 AD_MARKER = "adsbygoogle"
@@ -149,6 +154,11 @@ def main() -> int:
         default=-1,
         help="인-아티클 광고 개수 강제 (기본: H2 개수로 자동 결정)",
     )
+    ap.add_argument(
+        "--auto-ads",
+        action="store_true",
+        help="자동광고 병행(밀도제어): 수동 인-아티클을 1개로 cap. 과밀/정책 위반 방지.",
+    )
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("-o", "--output", default="")
     ap.add_argument("--force", action="store_true", help="기존 광고 있어도 추가 삽입")
@@ -184,11 +194,18 @@ def main() -> int:
 
     # 1) 인-아티클 광고
     if not args.no_inarticle:
-        n_ads = (
-            args.inarticle_count
-            if args.inarticle_count >= 0
-            else _decide_inarticle_count(len(h2_idx))
-        )
+        if args.inarticle_count >= 0:
+            n_ads = args.inarticle_count
+        else:
+            n_ads = _decide_inarticle_count(len(h2_idx))
+            # 자동광고 병행 시: 테마 head 자동광고가 본문을 채우므로
+            # 수동 인-아티클은 1개로 cap (과밀/정책 위반 방지, 밀도제어).
+            if args.auto_ads and n_ads > 1:
+                print(
+                    f"  ⓘ --auto-ads 밀도제어: 인-아티클 {n_ads} → 1 개로 cap "
+                    f"(자동광고가 나머지 위치를 채움)"
+                )
+                n_ads = 1
         positions = _pick_insertion_positions(h2_idx, n_ads)
         if positions:
             html, has_todo = _load_ad_html("inarticle", platform)
