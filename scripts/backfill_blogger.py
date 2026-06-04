@@ -3,6 +3,8 @@
 money.onestepblog.info 등 Blogger 사이트의 이미 발행된 글에 다음을 자동 추가:
 
   1) 인-아티클 광고 (assets/ads/inarticle_blogger.html) — H2 분포 균등 분산
+  1.5) 멀티플렉스 광고 (assets/ads/multiplex_blogger.html, --multiplex) — 글 끝.
+       H2 가 없어 인-아티클을 못 넣는 글(예: ETF 단순 표 글)도 광고 확보 가능.
   2) ## 참고 자료 섹션 — 공식 출처 링크 (도메인별)
   3) ## 면책 조항 (--domain apartment_subscription) — YMYL 대응
 
@@ -34,6 +36,11 @@ money.onestepblog.info 등 Blogger 사이트의 이미 발행된 글에 다음�
     --blog-id $BLOGGER_STOCKS_BLOG_ID \\
     --domain apartment_subscription \\
     --apply
+
+  # 4) H2 없는 글(ETF 표 글 등)에 글 끝 멀티플렉스만 — 인-아티클/참고자료/면책 skip
+  uv run python scripts/backfill_blogger.py \\
+    --blog-id $BLOGGER_STOCKS_BLOG_ID --domain generic \\
+    --skip-ads --skip-sources --skip-disclaimer --multiplex --apply
 """
 
 from __future__ import annotations
@@ -54,6 +61,7 @@ from blog_auto.publishers.blogger import _get_credentials  # noqa: E402
 BACKUP_DIR = ROOT / "assets" / "backups" / "blogger"
 ADS_DIR = ROOT / "assets" / "ads"
 AD_MARKER = "adsbygoogle"
+MULTIPLEX_MARKER = "autorelaxed"  # 멀티플렉스(data-ad-format='autorelaxed') 식별 — 인-아티클과 구분
 SOURCES_MARKER = "참고 자료"
 DISCLAIMER_MARKER = "면책 조항"
 TODO_TOKEN = "TODO_REPLACE_ME"
@@ -91,6 +99,14 @@ def _load_ad_html() -> tuple[str, bool]:
     path = ADS_DIR / "inarticle_blogger.html"
     if not path.exists():
         raise FileNotFoundError(f"광고 HTML 없음: {path}")
+    html = path.read_text(encoding="utf-8").strip()
+    return html, TODO_TOKEN in html
+
+
+def _load_multiplex_html() -> tuple[str, bool]:
+    path = ADS_DIR / "multiplex_blogger.html"
+    if not path.exists():
+        raise FileNotFoundError(f"멀티플렉스 광고 HTML 없음: {path}")
     html = path.read_text(encoding="utf-8").strip()
     return html, TODO_TOKEN in html
 
@@ -181,6 +197,8 @@ def _process_post(
     skip_disclaimer: bool,
     force: bool,
     n_ads_override: int,
+    add_multiplex: bool = False,
+    multiplex_html: str = "",
 ) -> tuple[str, list[str], bool]:
     """단일 글 처리. (new_html, log_lines, changed) 반환."""
     html = post.get("content", "")
@@ -188,6 +206,7 @@ def _process_post(
     logs: list[str] = []
 
     has_ad = AD_MARKER in html
+    has_multiplex = MULTIPLEX_MARKER in html
     has_sources = SOURCES_MARKER in html
     has_disclaimer = DISCLAIMER_MARKER in html
     h2_count = len(_h2_spans(html))
@@ -195,22 +214,32 @@ def _process_post(
     logs.append(f"  · 제목: {title[:60]}")
     logs.append(
         f"  · 현재상태: H2={h2_count}, 광고={'O' if has_ad else 'X'}, "
+        f"멀티플렉스={'O' if has_multiplex else 'X'}, "
         f"sources={'O' if has_sources else 'X'}, disclaimer={'O' if has_disclaimer else 'X'}"
     )
 
     new_html = html
     inserted_any = False
 
-    # 1) 광고
+    # 1) 인-아티클 광고 (H2 직전 분산)
     if not skip_ads and (not has_ad or force):
         new_html, n = _insert_ads(new_html, ad_html, n_ads_override=n_ads_override)
         if n > 0:
             logs.append(f"  + 인-아티클 광고 {n} 개")
             inserted_any = True
         else:
-            logs.append("  - 광고 0 (H2 부족 또는 후보 없음)")
+            logs.append("  - 인-아티클 0 (H2 부족 또는 후보 없음)")
     elif has_ad:
-        logs.append("  - 광고 skip (이미 있음, --force 로 추가)")
+        logs.append("  - 인-아티클 skip (이미 있음, --force 로 추가)")
+
+    # 1.5) 멀티플렉스 광고 (글 끝 — 참고자료/면책 블록 앞).
+    #      H2 가 없어 인-아티클을 못 넣은 글의 유일한 본문 광고 수단.
+    if add_multiplex and multiplex_html and (not has_multiplex or force):
+        new_html = new_html.rstrip() + f"\n\n{multiplex_html}\n"
+        logs.append("  + 멀티플렉스 광고 (글 끝)")
+        inserted_any = True
+    elif add_multiplex and has_multiplex:
+        logs.append("  - 멀티플렉스 skip (이미 있음, --force 로 추가)")
 
     # 2) 참고 자료
     if not skip_sources and (not has_sources or force):
@@ -256,6 +285,11 @@ def main() -> int:
         "--limit", type=int, default=0, help="처리할 글 수 (기본 0 = 전체)"
     )
     ap.add_argument("--post-id", default="", help="특정 글 1개만 처리 (검증용)")
+    ap.add_argument(
+        "--multiplex",
+        action="store_true",
+        help="글 끝 멀티플렉스 광고 추가 (H2 없는 글도 광고 확보 가능)",
+    )
     ap.add_argument("--skip-ads", action="store_true")
     ap.add_argument("--skip-sources", action="store_true")
     ap.add_argument("--skip-disclaimer", action="store_true")
@@ -281,6 +315,17 @@ def main() -> int:
             "assets/ads/inarticle_blogger.html"
         )
         print("   (--skip-ads 로 광고만 비활성화 가능)\n")
+
+    multiplex_html = ""
+    if args.multiplex:
+        multiplex_html, mp_todo = _load_multiplex_html()
+        if mp_todo:
+            print(
+                "⚠️  멀티플렉스 광고 HTML 에 TODO_REPLACE_ME 가 있습니다. "
+                "AdSense 에서 멀티플렉스 광고 단위 만들고 slot ID 채우세요 → "
+                "assets/ads/multiplex_blogger.html  (이번 실행은 멀티플렉스 건너뜀)\n"
+            )
+            multiplex_html = ""
 
     try:
         creds = _get_credentials()
@@ -337,6 +382,8 @@ def main() -> int:
                 skip_disclaimer=args.skip_disclaimer,
                 force=args.force,
                 n_ads_override=args.inarticle_count,
+                add_multiplex=args.multiplex,
+                multiplex_html=multiplex_html,
             )
         except Exception as e:
             print(f"  ✗ 처리 실패: {e}")
