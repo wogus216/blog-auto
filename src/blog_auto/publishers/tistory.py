@@ -56,21 +56,34 @@ class TistoryPublisher(BasePublisher):
                 except Exception:
                     pass
 
-                # 카카오 간편 로그인 화면 (계정 한 번 더 클릭 필요)
+                # 카카오 간편 로그인 화면 (계정 카드 클릭으로 자동 통과 시도)
                 if "accounts.kakao.com" in page.url:
                     try:
                         page.wait_for_load_state("networkidle", timeout=10000)
                     except Exception:
                         pass
-                    # 첫 번째 a.wrap_profile = 본인 계정. 두 번째는 "새 계정으로 로그인"
+                    # 첫 번째 a.wrap_profile = 본인 계정. 있으면 클릭해 자동 통과.
                     simple = page.query_selector("a.wrap_profile")
-                    if not simple:
-                        return PublishResult(url=None, ok=False, note=f"간편 로그인 계정 항목 없음 ({page.url}) — 재로그인 필요")
-                    simple.click()
+                    if simple:
+                        simple.click()
+                        try:
+                            page.wait_for_url("**/manage/newpost/**", timeout=15000)
+                        except Exception:
+                            pass
+
+                # 자동 통과 실패(prompt=select_account로 ID/PW 재인증 요구 등) →
+                # 열린 브라우저에서 사람이 직접 로그인할 때까지 대기. 카카오는 자동화
+                # 세션을 신뢰하지 않아 매번 재인증을 요구할 수 있으므로 이 경로가 필요.
+                if ("accounts.kakao.com" in page.url) or ("kauth.kakao.com" in page.url):
+                    print(
+                        "\n[티스토리] 카카오 로그인 화면입니다. **열린 브라우저 창에서 직접 로그인**하세요.\n"
+                        "           ('로그인 상태 유지' 체크 권장) 글쓰기 화면이 뜨면 발행이 자동으로 이어집니다.\n"
+                        "           최대 5분 대기합니다...\n"
+                    )
                     try:
-                        page.wait_for_url("**/manage/newpost/**", timeout=15000)
+                        page.wait_for_url("**/manage/newpost/**", timeout=300000)
                     except Exception:
-                        return PublishResult(url=None, ok=False, note=f"카카오 SSO 실패 (간편 로그인 후 {page.url}) — 재로그인 필요")
+                        return PublishResult(url=None, ok=False, note=f"카카오 수동 로그인 시간 초과 ({page.url}) — 다시 시도하세요")
                 self.tiny_pause()
 
             page.wait_for_function(
@@ -332,6 +345,23 @@ class TistoryPublisher(BasePublisher):
                     if date_fallback:
                         year_ok = month_ok = day_ok = True
                         print(f"[DEBUG] 날짜 fallback 성공: {iso_datetime}")
+
+                # 신 UI: 날짜 input(dateYear/Month/Day)이 없고, 날짜는 button.btn_reserve
+                # 텍스트('YYYY-MM-DD')로 표시됨. 변경은 캘린더 위젯 클릭이 필요하나,
+                # target이 이미 표시된 예약일과 같으면(당일/기본값 예약) 날짜 변경 불필요 → 통과.
+                if not (year_ok and month_ok and day_ok):
+                    target_date = f"{dt.year:04d}-{dt.month:02d}-{dt.day:02d}"
+                    try:
+                        shown = page.evaluate(
+                            "() => { const b = document.querySelector('button.btn_reserve');"
+                            " return b ? b.textContent.trim() : null; }"
+                        )
+                    except Exception:
+                        shown = None
+                    print(f"[DEBUG] btn_reserve 표시일={shown}, target={target_date}")
+                    if shown == target_date:
+                        year_ok = month_ok = day_ok = True
+                        print("[DEBUG] 예약일이 이미 target과 동일 — 날짜 변경 불필요, 통과")
 
                 # 시간만 통과하고 날짜 미적용이면 잘못된 시각에 발행되므로 명시적 중단
                 # (실제 사례: 5/22 11:25에 등록 시 5/23·24·25·26 예약이 모두 5/22 11:25에 발행됨)
