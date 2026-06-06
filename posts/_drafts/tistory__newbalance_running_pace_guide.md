@@ -1,6 +1,8 @@
 ---
 title: 뉴발란스 러닝화 2026년 추천 — 페이스대별로 골라 신는 법 (Sub3부터 입문까지)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/826
 category: 러닝/장비
 tags: ['뉴발란스', 'NewBalance', '러닝화', '러닝화추천', '마라톤', '서브3', '서브4', 'SCElitev5', 'SCTrainerv3', 'Rebelv5', '1080v14', 'FreshFoamX', 'FuelCell']
 ---
@@ -176,12 +178,12 @@ ABC마트는 시착이 가장 큰 장점 — 풋스캔 + 폭 옵션 직접 신�
 - 가격은 시즌별로 흔들리므로, 모델 정해지면 정식 채널 가격 한 번 더 확인
 - 카본은 자세 잡힌 후, 폼은 입문기·회복기, 추진감은 페이스 훈련용
 
-러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
+러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com/brands/new-balance)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
 
 ### 발 폭이 D인 경우 다른 브랜드 옵션도
 
-- [발 폭 D 표준이라면 — 나이키 러닝화 2026년 가이드](https://allrunabout.com) — Vaporfly 4·Pegasus 41 같은 좁은 토박스 라인. 발폭 표준 이하 러너에게는 NB보다 Nike·Adidas 슈퍼슈가 가격대 옵션 더 풍부
-- [Rods 시스템 궁금하면 — 아디다스 러닝화 2026년 가이드](https://allrunabout.com) — NB Energy Arc Plate와 다른 분산형 카본 답안. Pro 4·Boston 13 라인 비교
-- [발 폭·아치 별 매칭 가이드 — 평발·요족·과회내·발폭 4가지 축 종합](https://allrunabout.com) — D/2E/4E 결정 + 아치 높이 + 회내 정도까지 한 페이지
+- [발 폭 D 표준이라면 — 나이키 러닝화 2026년 가이드](https://allrunabout.com/best/nike-racing) — Vaporfly 4·Pegasus 41 같은 좁은 토박스 라인. 발폭 표준 이하 러너에게는 NB보다 Nike·Adidas 슈퍼슈가 가격대 옵션 더 풍부
+- [Rods 시스템 궁금하면 — 아디다스 러닝화 2026년 가이드](https://allrunabout.com/best/adidas-daily-trainer) — NB Energy Arc Plate와 다른 분산형 카본 답안. Pro 4·Boston 13 라인 비교
+- [발 폭·아치 별 매칭 가이드 — 평발·요족·과회내·발폭 4가지 축 종합](https://allrunabout.com/best/wide-toebox) — D/2E/4E 결정 + 아치 높이 + 회내 정도까지 한 페이지
 
 > 본 글은 정보 제공·개인 경험 공유 목적이며 특정 모델 구매를 권유하지 않습니다. **뉴발란스는 동일 모델에서도 발 폭 옵션(D/2E/4E)별로 재고 변동이 크고**, v넘버 세대 교체(1080v13→v14, 880v14→v15 같은 한 시즌 단위)에 따라 데일리 라인 가성비가 빠르게 바뀝니다. 아울렛 입고도 모델별로 시기가 달라서, 폭·세대까지 확인하고 사는 게 안전. 가격·라인업·재고는 글 작성 시점 기준이라 nbkorea.com·아울렛에서 다시 확인해 주세요.

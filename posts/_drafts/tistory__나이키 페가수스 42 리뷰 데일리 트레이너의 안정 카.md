@@ -1,6 +1,8 @@
 ---
 title: 나이키 페가수스 42, 41이랑 뭐가 다를까? — 300km 신어본 솔직 리뷰
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/810
 category: 러닝 / 장비
 tags: ['러닝', '러닝화', '나이키', '페가수스42', '데일리트레이너', '훈련', '서브4']
 description: 나이키 페가수스 42 솔직 리뷰. 41과 스펙 비교, 무게·드롭·스택, 페이스대별 실주행 인상, 어떤 러너에게 추천하는지까지 300km 기준 정리.
@@ -57,7 +59,7 @@ description: 나이키 페가수스 42 솔직 리뷰. 41과 스펙 비교, 무�
 ### 3. 아웃솔 패턴 미세 조정
 앞꿈치 그루브가 살짝 깊어졌어요. 젖은 노면에서 41보다 덜 미끄러지는 느낌입니다. 타이트한 코너에서 차이가 납니다.
 
-<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 페가수스 말고 다른 데일리화도 비교하려면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">브랜드 횡단 비교·발 모양별 매칭 가이드</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 페가수스 말고 다른 데일리화도 비교하려면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">브랜드 횡단 비교·발 모양별 매칭 가이드</div><a href="https://allrunabout.com/shoes/nike-pegasus-42" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
 
 ## 어떤 러너에게?
 
@@ -96,6 +98,6 @@ description: 나이키 페가수스 42 솔직 리뷰. 41과 스펙 비교, 무�
 
 페가수스 42 외에도 **보메로, 알파플라이, 베이퍼플라이, 호카, 아식스, 뉴발란스** 등 주요 러닝화 비교·리뷰가 한 곳에 정리되어 있어요. 본인 발 모양·페이스·훈련 목적별로 맞춤 추천을 받아보세요.
 
-👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://www.allrunabout.com/)**
+👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://allrunabout.com/blog/nike-pegasus-42-review)**
 
 > 데일리 트레이너부터 레이스화까지, 직접 신어본 러너들의 리얼 후기를 확인하세요. 🏃‍♂️

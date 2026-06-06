@@ -1,6 +1,8 @@
 ---
 title: 호카 러닝화 2026년 추천 — 페이스대별로 골라 신는 법 (Sub3부터 입문까지)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/827
 category: 러닝/장비
 tags: ['호카', 'Hoka', '러닝화', '러닝화추천', '마라톤', '서브3', '서브4', 'CieloX1', 'Mach6', 'Clifton10', 'Bondi9', 'Arahi7', '메타로커']
 ---
@@ -169,12 +171,12 @@ Bondi 9를 부상 회복기에 8주 동안 주당 35km씩 굴렸다. 힐 42mm �
 - 가격은 시즌별로 흔들리므로, 모델 정해지면 정식 채널 가격 한 번 더 확인
 - 카본은 자세 잡힌 후, 메타-로커는 발 보호 우선, 슈퍼폼은 페이스 훈련용
 
-러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
+러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com/brands/hoka)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
 
 ### 메타-로커가 안 맞는 발이라면
 
-- [풀 카본 Flyplate가 답일 수도 — 나이키 러닝화 2026년 가이드](https://allrunabout.com) — 메타-로커 곡률이 본인 발구름과 안 맞으면 평평한 미드솔 + 카본 추진의 Vaporfly·Pegasus 라인이 대안
-- [발 폭 2E 이상이라면 — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com) — 호카는 D 라스트 위주라 발 폭 넓으면 NB 1080v14·880v15의 4E 옵션부터
-- [듀얼 폼 슈퍼슈의 또 다른 답 — 아식스 러닝화 2026년 가이드](https://allrunabout.com) — MetaSpeed Sky/Edge Paris의 케이던스 vs 스트라이드 분기 시스템
+- [풀 카본 Flyplate가 답일 수도 — 나이키 러닝화 2026년 가이드](https://allrunabout.com/best/nike-racing) — 메타-로커 곡률이 본인 발구름과 안 맞으면 평평한 미드솔 + 카본 추진의 Vaporfly·Pegasus 라인이 대안
+- [발 폭 2E 이상이라면 — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com/best/new-balance-max-cushion) — 호카는 D 라스트 위주라 발 폭 넓으면 NB 1080v14·880v15의 4E 옵션부터
+- [듀얼 폼 슈퍼슈의 또 다른 답 — 아식스 러닝화 2026년 가이드](https://allrunabout.com/best/asics-racing) — MetaSpeed Sky/Edge Paris의 케이던스 vs 스트라이드 분기 시스템
 
 > 본 글은 정보 제공·개인 경험 공유 목적이며 특정 모델 구매를 권유하지 않습니다. **호카는 메타-로커 곡률 특성상 본인 발구름과 적합도가 가장 중요한 브랜드**라 사이즈·가격 정보보다 매장 시착 30~60초가 결정적입니다. 또한 호카 한국은 아울렛 매장이 약해 직전 모델 가성비가 다른 브랜드 대비 떨어지니, 신상 시즌(2~4월·8~10월) 위주로 가격 비교하는 게 효율적입니다. 가격·라인업·재고는 글 작성 시점 기준이며 hoka.co.kr·매장에서 다시 확인해 주세요.

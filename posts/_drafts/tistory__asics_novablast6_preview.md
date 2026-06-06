@@ -1,6 +1,8 @@
 ---
 title: 아식스 노바블라스트 6, 7월 6일 출시 — 5세대에서 뭐가 바뀌나 (스펙·변경점 프리뷰)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/836
 category: 러닝/장비
 tags: ['노바블라스트6', '노바블라스트5', '아식스', '아식스러닝화', 'FFTurboSquared', '데일리트레이너', '러닝화신상', '2026러닝화', '러닝화추천', '러닝']
 ---
@@ -53,11 +55,11 @@ tags: ['노바블라스트6', '노바블라스트5', '아식스', '아식스러�
 - **바뀐 것**: 미드솔 듀얼화(힐 FF Blast Max + 포어풋 FF Turbo Squared), 직조 어퍼, ASICSGRIP 아웃솔
 - **방향성**: 데일리 + 롱런까지 끌어올린 업그레이드. 포어풋 반발 강화가 핵심
 
-노바블라스트 외 데일리 트레이너 횡단 비교(클리프톤·페가수스·1080 등), 페이스대별 러닝화 매칭은 [allrunabout.com](https://allrunabout.com)에 정리해 두었으니 본인 사용 목적에 맞는 모델을 찾기 좋다.
+노바블라스트 외 데일리 트레이너 횡단 비교(클리프톤·페가수스·1080 등), 페이스대별 러닝화 매칭은 [allrunabout.com](https://allrunabout.com/shoes/asics-novablast-5)에 정리해 두었으니 본인 사용 목적에 맞는 모델을 찾기 좋다.
 
 ### 노바블라스트 6 고민될 때 같이 보면 좋은 글
-- [입문자 첫 러닝화 BEST 5](https://allrunabout.com) — 노바블라스트가 처음이라면 입문 표준 라인업부터
-- [데일리 트레이너 브랜드 횡단 비교](https://allrunabout.com) — 클리프톤·페가수스·1080과의 차이
-- [러닝화 폼 기술 정리(FF Turbo·PEBA 등)](https://allrunabout.com) — FF Turbo Squared가 뭔지 폼 단위로 이해하기
+- [입문자 첫 러닝화 BEST 5](https://allrunabout.com/best/beginner) — 노바블라스트가 처음이라면 입문 표준 라인업부터
+- [데일리 트레이너 브랜드 횡단 비교](https://allrunabout.com/best/daily-trainer) — 클리프톤·페가수스·1080과의 차이
+- [러닝화 폼 기술 정리(FF Turbo·PEBA 등)](https://allrunabout.com/brands/asics/technology) — FF Turbo Squared가 뭔지 폼 단위로 이해하기
 
 > 본 글은 정보 제공 목적이며 특정 모델 구매를 권유하지 않습니다. 스펙·가격·출시일은 변경될 수 있고 출시 전 공개 정보 기준이라, 국내 정식 사양·가격은 아식스 공식에서 다시 확인해 주세요. 착화 리뷰는 출시 후 별도 게재 예정입니다.

@@ -1,6 +1,8 @@
 ---
 title: 푸마 디비에이트 나이트로 퓨어 출시 — 220g 플레이트리스 데일리화, 누구한테 맞나 (2026)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/839
 category: 러닝/장비
 tags: ['푸마러닝화', '디비에이트나이트로퓨어', 'PUMA', '나이트로', '데일리러닝화', '경량러닝화', '플레이트리스', '러닝화추천', '푸마나이트로', '2026러닝화']
 ---
@@ -68,7 +70,7 @@ tags: ['푸마러닝화', '디비에이트나이트로퓨어', 'PUMA', '나이�
 - **용도 정리**: 이 신발을 '레이스용'으로 기대하면 실망할 수 있다. 데일리·훈련 포지션으로 접근.
 - **사이즈·정가**: 정확한 정가·할인가·사이즈 재고는 푸마 공식몰·무신사·매장에서 매수 직전 확인.
 
-<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 푸마 외 다른 데일리·카본화랑 비교하고 싶다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">브랜드별·페이스대별 매칭 가이드를 한곳에서</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 푸마 외 다른 데일리·카본화랑 비교하고 싶다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">브랜드별·페이스대별 매칭 가이드를 한곳에서</div><a href="https://allrunabout.com/shoes/puma-deviate-pure-nitro" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
 
 ## 정리 — 플레이트리스라는 선택지
 
@@ -83,6 +85,6 @@ tags: ['푸마러닝화', '디비에이트나이트로퓨어', 'PUMA', '나이�
 
 이 글은 푸마 신상 한 모델을 정리한 거고, 데일리화·카본화를 브랜드별로 가로질러 비교하거나 페이스대별로 2~3족을 운영하는 전략은 종합 리뷰 사이트에서 더 깊이 다룬다.
 
-👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://www.allrunabout.com/)**
+👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://allrunabout.com/blog/puma-deviate-pure-nitro-review)**
 
 > ⚠️ 이 글의 무게·스펙·라인업 정보는 글 작성 시점(2026-06-05) 기준 공개 정보 참고치입니다. 정확한 정가·할인가·사이즈·스펙은 푸마 공식몰과 매장에서 매수 직전 확인하세요. 신발 핏은 개인차가 크므로 직접 시착 결과를 우선시하시길 권합니다.

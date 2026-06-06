@@ -1,6 +1,8 @@
 ---
 title: 첫 러닝화 뭐 사지? — 입문자 실패 안 하는 BEST 5 (발 모양·체중별 30초 추천)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/829
 category: 러닝/장비
 tags: ['러닝화추천', '입문러닝화', '초보러닝화', '첫러닝화', '노바블라스트5', '페가수스42', '클리프톤10', '뉴발란스1080v14', '슈퍼노바라이즈', '데일리트레이너', '쿠셔닝러닝화', '러닝화BEST5', '2026러닝화']
 ---
@@ -58,7 +60,7 @@ tags: ['러닝화추천', '입문러닝화', '초보러닝화', '첫러닝화', 
 
 가격은 한국 정가 기준 참고치다. 시즌·이벤트·매장에 따라 매번 바뀌므로 모델 정해지면 **무신사·쿠팡·각 브랜드 공식몰** 가격을 한 번 더 확인하자. 일반적으로 정가 대비 20~30% 할인은 자주 보이는 수준이다.
 
-<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 첫 러닝화, 브랜드별로 더 비교하고 싶다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">발 모양·페이스대별 매칭 가이드를 한곳에서</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 첫 러닝화, 브랜드별로 더 비교하고 싶다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">발 모양·페이스대별 매칭 가이드를 한곳에서</div><a href="https://allrunabout.com/best/beginner" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 비교 보기 →</a></div>
 
 ## 1. 아식스 노바블라스트 5 — 입문 표준 (Recommended)
 
@@ -258,7 +260,7 @@ A. 트레드밀은 아스팔트보다 충격이 적고 균일하다. **무게 �
 
 본 글의 5개 모델은 입문 표준이고, 중급기로 넘어가면 페이스대별 2~3족 운영이 일반적이다. 카본 슈퍼슈 도입 시점, 페이스대별 세분 추천, 브랜드별 상세 리뷰는 종합 리뷰 사이트에서 더 깊이 다룬다.
 
-👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://www.allrunabout.com/)**
+👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://allrunabout.com/best/under-150k)**
 
 > 입문기에는 신발 고민에 시간 쓰기보다 **누적 km를 늘리는 게 우선**이다. 본 글의 5개 중 본인 조건에 맞는 한 켤레만 정해 매장에서 시착하고 빨리 시작하자.
 

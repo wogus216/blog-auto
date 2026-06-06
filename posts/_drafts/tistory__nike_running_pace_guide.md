@@ -1,6 +1,8 @@
 ---
 title: 나이키 러닝화 2026년 추천 — 페이스대별로 골라 신는 법 (Sub3부터 입문까지)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/822
 category: 러닝/장비
 tags: ['나이키', '러닝화', '러닝화추천', '마라톤', '서브3', '서브4', '알파플라이3', '베이퍼플라이4', '페가수스41', '줌플라이6', '스트릭플라이2']
 ---
@@ -162,11 +164,11 @@ Vaporfly·Streakfly 라인은 좁고, Pegasus·Vomero·Structure 라인은 비�
 - 가격은 시즌별로 흔들리므로, 모델 정해지면 정식 채널 가격 한 번 더 확인
 - 카본은 자세 잡힌 후, 폼은 입문기·회복기, 추진감은 페이스 훈련용
 
-러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
+러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com/brands/nike)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
 
 ### 나이키가 안 맞을 때 — 같이 보면 좋은 글
-- [발 폭 D 이상이라면? — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com) — Vaporfly·Alphafly 토박스가 좁다면 NB 1080v14·880v15의 2E/4E 옵션부터 시도해보길
-- [곡선형 카본 vs 풀 Flyplate — 슈퍼슈 비교 가이드](https://allrunabout.com) — Vaporfly 4의 풀 카본이 부담스러우면 NB SC Elite v5, Adidas Pro 4(Rods) 같은 대안 비교
-- [Sub3 도전자의 신발 운영 — 레이스 + 트레이닝 2족 구성](https://allrunabout.com) — Alphafly + Pegasus / Vaporfly + Zoom Fly 6 같은 한 시즌 운영 패턴 정리
+- [발 폭 D 이상이라면? — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com/best/new-balance-max-cushion) — Vaporfly·Alphafly 토박스가 좁다면 NB 1080v14·880v15의 2E/4E 옵션부터 시도해보길
+- [곡선형 카본 vs 풀 Flyplate — 슈퍼슈 비교 가이드](https://allrunabout.com/best/racing) — Vaporfly 4의 풀 카본이 부담스러우면 NB SC Elite v5, Adidas Pro 4(Rods) 같은 대안 비교
+- [Sub3 도전자의 신발 운영 — 레이스 + 트레이닝 2족 구성](https://allrunabout.com/best/marathon) — Alphafly + Pegasus / Vaporfly + Zoom Fly 6 같은 한 시즌 운영 패턴 정리
 
 > 본 글은 정보 제공·개인 경험 공유 목적이며 특정 모델 구매를 권유하지 않습니다. **나이키 라인업은 컬러웨이 단위로 매진 패턴이 강하고**(특히 ZoomX 슈퍼슈 페이서·올림픽 컬러), 사이즈·폭 옵션도 시즌마다 변동되니 SNKRS 앱·나이키 멤버스에서 출시 알림 등록 권장. 가격·라인업·재고는 글 작성 시점 기준이라 정식 채널에서 다시 확인해 주세요.

@@ -1,6 +1,8 @@
 ---
 title: 아식스 러닝화 2026년 추천 — 페이스대별로 골라 신는 법 (Sub3부터 입문까지)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/828
 category: 러닝/장비
 tags: ['아식스', 'Asics', '러닝화', '러닝화추천', '마라톤', '서브3', '서브4', 'MetaSpeedSky', 'MetaSpeedEdge', 'MagicSpeed4', 'Novablast5', 'Nimbus27', 'Kayano31']
 ---
@@ -183,12 +185,12 @@ ABC마트는 시착 + ASICS FOOT ID 진단 서비스 (일부 매장). 쿠팡은 
 - 카본은 자세 잡힌 후, Gel/안정 구조는 입문기·회복기, 듀얼 폼은 페이스 훈련용
 - **풋스캔(ASICS FOOT ID)**: 첫 아식스 구매는 매장에서 진단 받고 결정
 
-러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
+러닝화 카테고리 더 자세한 비교(나이키·아디다스·아식스·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com/brands/asics)에서 정리해 두었으니 본인 케이스에 가장 가까운 모델을 찾기 좋다.
 
 ### 아식스 슈퍼슈 분기가 어렵게 느껴진다면
 
-- [본인 케이던스 측정법 — 가민·코로스 없이도 가능한 3가지 방법](https://allrunabout.com) — MetaSpeed Sky vs Edge 결정 전 본인 폼 파악
-- [듀얼 폼 시스템 vs 단일 PEBA — 풀 거리 누적 효율 비교](https://allrunabout.com) — Magic Speed 4의 PEBA + EVA 듀얼 폼이 단일 ZoomX·Pro 4 대비 어떻게 다른지
-- [Gel 기술은 정말 의미 있나 — Nimbus 27·Kayano 31의 충격 흡수 데이터 분해](https://allrunabout.com) — Pure-GEL이 PEBA 슈퍼폼 시대에도 갖는 차별점
+- [본인 케이던스 측정법 — 가민·코로스 없이도 가능한 3가지 방법](https://allrunabout.com/best/asics-racing) — MetaSpeed Sky vs Edge 결정 전 본인 폼 파악
+- [듀얼 폼 시스템 vs 단일 PEBA — 풀 거리 누적 효율 비교](https://allrunabout.com/shoes/asics-magic-speed-5) — Magic Speed 4의 PEBA + EVA 듀얼 폼이 단일 ZoomX·Pro 4 대비 어떻게 다른지
+- [Gel 기술은 정말 의미 있나 — Nimbus 27·Kayano 31의 충격 흡수 데이터 분해](https://allrunabout.com/shoes/asics-gel-nimbus-28) — Pure-GEL이 PEBA 슈퍼폼 시대에도 갖는 차별점
 
 > 본 글은 정보 제공·개인 경험 공유 목적이며 특정 모델 구매를 권유하지 않습니다. **아식스는 MetaSpeed Sky/Edge Paris의 폼별 분기가 핵심 결정 변수**라 본 글의 모델별 추천은 평균 러너 기준 가이드이며, 본인 평균 케이던스 측정 후 결정 권장. 또한 **일본 직구는 환율·관세·배송 변동에 따라 실제 절감액이 ±15% 변동**되니 구매 직전 환율·라쿠텐 세일 일정 확인 필수. 가격·라인업·재고는 글 작성 시점 기준이며 asics.co.kr·asics.co.jp에서 다시 확인해 주세요.

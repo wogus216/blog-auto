@@ -1,6 +1,8 @@
 ---
 title: 아디다스 러닝화 2026년 추천 — 페이스대별로 골라 신는 법 (Sub3부터 입문까지)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/821
 category: 러닝/장비
 tags: ['아디다스', '러닝화', '러닝화추천', '마라톤', '서브3', '서브4', '아디오스프로4', '보스턴13', '슈퍼노바', '울트라부스트']
 ---
@@ -170,12 +172,12 @@ Pro Evo 2 같은 한정 라인 + 풋스캔 동반 시착이 필요하면 여기.
 - 가격은 시즌별로 흔들리므로, 모델 정해지면 정식 채널 가격 한 번 더 확인
 - 카본은 자세 잡힌 후, 폼은 입문기·회복기, 추진감은 페이스 훈련용
 
-러닝화 카테고리 더 자세한 비교(아식스·나이키·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com)에서 정리해 두었으니 참고하면 본인 케이스에 가장 가까운 모델을 찾기 좋다.
+러닝화 카테고리 더 자세한 비교(아식스·나이키·호카·뉴발·온 등 브랜드 횡단 비교, 발 모양별 매칭 가이드)는 [allrunabout.com](https://allrunabout.com/brands/adidas)에서 정리해 두었으니 참고하면 본인 케이스에 가장 가까운 모델을 찾기 좋다.
 
 ### 아디다스 외 다른 라인이 궁금하다면
 
-- [Rods 대신 풀 Flyplate? — 나이키 러닝화 2026년 가이드](https://allrunabout.com) — Pro 4 토박스 좁아서 못 신는 발폭이라면 Pegasus Plus·Zoom Fly 6 같은 데일리 + Vaporfly 4 레이싱 비교
-- [발 폭 2E·4E 옵션 필요하면 — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com) — Pro 4·Boston 13의 좁은 토박스 대안으로 NB 1080v14·880v15의 폭 옵션 라인
-- [Pro Evo 2는 어디서 구하나 — 아디다스 슈퍼슈 한정판 채널 가이드](https://allrunabout.com) — 600km 수명·정식 매장 한정·발매 알림 등록까지
+- [Rods 대신 풀 Flyplate? — 나이키 러닝화 2026년 가이드](https://allrunabout.com/best/nike-racing) — Pro 4 토박스 좁아서 못 신는 발폭이라면 Pegasus Plus·Zoom Fly 6 같은 데일리 + Vaporfly 4 레이싱 비교
+- [발 폭 2E·4E 옵션 필요하면 — 뉴발란스 러닝화 2026년 가이드](https://allrunabout.com/best/new-balance-max-cushion) — Pro 4·Boston 13의 좁은 토박스 대안으로 NB 1080v14·880v15의 폭 옵션 라인
+- [Pro Evo 2는 어디서 구하나 — 아디다스 슈퍼슈 한정판 채널 가이드](https://allrunabout.com/shoes/adidas-adios-pro-4) — 600km 수명·정식 매장 한정·발매 알림 등록까지
 
 > 본 글은 정보 제공·개인 경험 공유 목적이며 특정 모델 구매를 권유하지 않습니다. **아디다스는 분기별 자체 세일(MEMBERS WEEK·BLACK FRIDAY·END OF SEASON)에 따라 가격 변동성이 매우 크고**, Pro Evo 2 같은 한정 라인은 공식·러닝 전문매장 외에는 거의 풀리지 않으니 adiClub 가입 + 발매 알림 등록 권장. 가격·라인업·재고는 글 작성 시점 기준이라 adidas.co.kr·공식 매장에서 다시 확인해 주세요.

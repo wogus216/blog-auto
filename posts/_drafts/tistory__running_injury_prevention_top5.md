@@ -1,6 +1,8 @@
 ---
 title: 러닝 6개월차에 꼭 다친다 — 흔한 부상 5가지, 신호 오기 전에 막는 법
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/830
 category: 러닝/부상
 tags: ['러닝부상', '러닝부상예방', '장경인대증후군', '족저근막염', '정강이통증', '아킬레스건염', '러너스무릎', '러닝입문', '10퍼센트룰', '폼롤러', '러닝회복']
 ---
@@ -174,7 +176,7 @@ tags: ['러닝부상', '러닝부상예방', '장경인대증후군', '족저근
 - 점진적 근력 운동으로 복귀
 - 2주 이상 지속되면 진료 권장
 
-<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 내 발·부상 패턴에 맞는 러닝화가 궁금하다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">평발·과회내·체중별 신발 매칭이 부상 예방의 절반</div><a href="https://www.allrunabout.com/" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 찾기 →</a></div>
+<div style="text-align:center;margin:32px 0;padding:24px 20px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;box-shadow:0 4px 14px rgba(3,105,161,.25);"><div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:6px;">👟 내 발·부상 패턴에 맞는 러닝화가 궁금하다면?</div><div style="color:#e0f2fe;font-size:13px;margin-bottom:14px;">평발·과회내·체중별 신발 매칭이 부상 예방의 절반</div><a href="https://allrunabout.com/best/plantar-fasciitis" style="display:inline-block;background:#fff;color:#0369a1;font-weight:800;padding:13px 28px;border-radius:30px;text-decoration:none;font-size:15px;">All Run About에서 러닝화 찾기 →</a></div>
 
 ## 🛡️ 5가지 부상을 한꺼번에 예방하는 4대 원칙
 
@@ -261,7 +263,7 @@ A. 통증 없는 범위에서 **자전거·수영·요가**는 일반적으로 �
 
 본인 발 모양·체중에 맞는 러닝화가 부상 예방의 절반이다. 평발·과회내·체중에 따라 어떤 신발이 맞는지 헷갈리면 종합 리뷰 사이트에서 더 깊이 다룬다.
 
-👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://www.allrunabout.com/)**
+👉 **[All Run About — 러닝화 종합 리뷰 보러가기](https://allrunabout.com/best/knee-protection)**
 
 > 부상 없이 오래 달리는 게 결국 가장 빠르게 실력 느는 길이다. 오늘 5km 더 뛰는 것보다 **3개월 뒤에 30km 뛸 수 있는 몸을 만드는 게** 우선.
 
