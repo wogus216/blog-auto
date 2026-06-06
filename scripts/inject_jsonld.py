@@ -42,7 +42,7 @@ from blog_auto.utils.structured_data import (  # noqa: E402
 )
 
 DEFAULT_AUTHOR = "러닝 큐레이터 (allrunabout.com)"
-JSONLD_PLATFORMS = {"tistory", "blogger", "blogger_stocks"}
+JSONLD_PLATFORMS = {"tistory", "blogger", "blogger_stocks", "blogger_money"}
 JSONLD_MARKER = '<script type="application/ld+json">'
 SOURCES_HEADING = "## 참고 자료"
 DISCLAIMER_HEADING = "## 면책 조항"
