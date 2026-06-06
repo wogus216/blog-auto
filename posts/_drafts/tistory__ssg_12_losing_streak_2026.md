@@ -1,6 +1,8 @@
 ---
 title: SSG 창단 첫 12연패 — 5월에만 20패, 무엇이 무너졌나 (2026 KBO)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/842
 category: 야구/KBO
 tags: ['SSG랜더스', 'KBO', '12연패', '프로야구', 'KBO순위', 'SSG', '연패', '야구분석', '2026KBO', '랜더스']
 ---
@@ -56,3 +58,11 @@ SK 와이번스 시절 두 차례 기록했던 11연패가 종전 구단 최다�
 - 연패는 타선·불펜·분위기가 겹친 복합 결과 — 반등 열쇠도 결국 같은 곳에 있다
 
 한 시즌을 보다 보면 어느 팀이든 슬럼프는 온다. 문제는 깊이와 길이다. SSG의 5월은 그 둘 다 역대급이었다는 점에서 한동안 회자될 기록으로 남을 것 같다. 6월에 어떻게 반응하는지가 이 팀의 진짜 저력을 보여줄 차례다.
+
+<div style="border:1px solid #e5e7eb;border-left:4px solid #dc2626;background:#f8fafc;border-radius:8px;padding:18px 20px;margin:28px 0;">
+<div style="font-weight:700;font-size:15px;margin-bottom:10px;">⚾ 직관 가는 길 — 구장 관람 가이드</div>
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li><a href="https://www.onestepblog.info/2025/08/2025.html">2025 한화이글스 완벽 관람 매뉴얼 — 좌석·먹거리·교통</a></li>
+<li><a href="https://www.onestepblog.info/2025/08/2025_01188070661.html">2025 롯데 자이언츠 홈경기 가이드 — 좌석별 가격표·추천 좌석</a></li>
+</ul>
+</div>

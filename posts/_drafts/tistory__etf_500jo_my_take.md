@@ -1,6 +1,8 @@
 ---
 title: ETF 500조 돌파 뉴스, 개미인 내가 휩쓸리지 않으려고 점검한 5가지 (2026년 6월)
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/840
 category: 꿀팁들/투자
 tags: ['ETF', '순자산500조', 'ETF투자', '국내ETF', '단일종목ETF', 'AI반도체ETF', '개인투자자', '분산투자', '레버리지ETF', 'ETF고르는법']
 ---
@@ -99,5 +101,13 @@ tags: ['ETF', '순자산500조', 'ETF투자', '국내ETF', '단일종목ETF', 'A
 - 결국 규모가 아니라 **기초자산·손익구조·보수·순자산** 4가지로 판단
 
 500조라는 숫자는 분명 시장이 건강하게 커졌다는 반가운 소식이다. 다만 그 숫자가 내 매수 버튼을 대신 눌러주지는 않는다. 들뜬 마음을 가라앉히고 내 계좌부터 들여다보는 게, 내가 이런 뉴스를 만날 때마다 하는 일이다.
+
+<div style="border:1px solid #e5e7eb;border-left:4px solid #2563eb;background:#f8fafc;border-radius:8px;padding:18px 20px;margin:28px 0;">
+<div style="font-weight:700;font-size:15px;margin-bottom:10px;">🔎 ETF, 사기 전에 끝까지 따져보고 싶다면</div>
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li><a href="https://www.onestepblog.info/2026/06/etf-500-etf-qqq-vs-tiger-isa-2026-6.html">미국 ETF 직구(QQQ) vs 국내상장(TIGER) — 세금·ISA 완전정리</a></li>
+<li><a href="https://www.onestepblog.info/2026/06/etf-jepijepq-vs-tigerkodex-2026-6.html">월배당 커버드콜 ETF 총정리 — JEPI·JEPQ vs 국내상장, 분배율·세금</a></li>
+</ul>
+</div>
 
 > 본 글은 정보 제공·개인 관점 공유 목적이며 특정 ETF 매수·매도를 권유하지 않습니다. 투자 판단은 본인 책임이며, 수치는 글 작성 시점(2026년 6월) 기준 공개 보도 참고치입니다. 정확한 정보는 KRX 정보데이터시스템과 각 운용사 공식 페이지에서 확인해 주세요.

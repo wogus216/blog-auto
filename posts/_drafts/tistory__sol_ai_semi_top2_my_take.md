@@ -1,6 +1,8 @@
 ---
 title: SOL AI반도체TOP2플러스 ETF (0167A0) 개인 투자자 관점 정리 — 왜 8일 만에 1조가 들어왔나
 platform: tistory
+status: published
+url: https://sancho216.tistory.com/841
 category: 꿀팁들/투자
 tags: ['SOLAI반도체TOP2플러스', 'AI반도체ETF', '신한자산운용', '삼성전자', 'SK하이닉스', '국내반도체ETF', 'AI투자', '0167A0']
 ---
@@ -114,5 +116,13 @@ AI 테마는 매크로(FOMC·CPI)·개별 종목 실적·정책 이슈에 따라
 - **종목 10개로 집중형 = 변동성 더 클 수 있음**: 분할 매수·평단 관리 중요
 
 ETF 한 종목을 사기 전에 항상 본인 전체 포트폴리오에서 이 종목이 차지하는 비중과 다른 보유 ETF·종목과의 중복 노출을 점검하는 게 안전하다. 본문 내용은 글 작성 시점 기준의 개인 관점 정리이며, 실제 매매 전에는 운용사 공식 정보(soletf.com)와 본인 자산 상황을 함께 점검하는 게 좋다.
+
+<div style="border:1px solid #e5e7eb;border-left:4px solid #2563eb;background:#f8fafc;border-radius:8px;padding:18px 20px;margin:28px 0;">
+<div style="font-weight:700;font-size:15px;margin-bottom:10px;">🔎 이 ETF, 비용·세금까지 끝까지 따져보고 싶다면</div>
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li><a href="https://www.onestepblog.info/2026/05/sol-aitop2-0167a0-isa.html">SOL AI반도체TOP2 총비용·수수료·세금 완전분해 — ISA/연금 절세 시나리오</a></li>
+<li><a href="https://www.onestepblog.info/2026/05/kodex-aitop2-vs-sol-aitop2-etf.html">KODEX vs SOL AI반도체TOP2 — 같은 이름, 다른 ETF 완전비교</a></li>
+</ul>
+</div>
 
 > 본 글은 정보 제공·개인 관점 공유 목적이며 특정 ETF 매수·매도를 권유하지 않습니다. 투자 판단은 본인 책임이며, 정확한 수치·비중·분배 정책은 신한자산운용 SOL ETF 공식 페이지, KRX, 가입 증권사 HTS에서 확인해 주세요.

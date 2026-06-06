@@ -77,4 +77,12 @@ LH가 **화성 동탄2지구 C-27블록**(청계동)에 공급하는 **공공분
 - **자격 확인**: [청약홈](https://www.applyhome.co.kr/) · 사이버견본주택 [dt-c27.co.kr](https://www.dt-c27.co.kr)
 - **문의**: 견본주택 031-8077-7989 / LH 1600-1004
 
+<div style="border:1px solid #e5e7eb;border-left:4px solid #059669;background:#f8fafc;border-radius:8px;padding:18px 20px;margin:28px 0;">
+<div style="font-weight:700;font-size:15px;margin-bottom:10px;">🏠 다른 청약 단지도 비교해보고 싶다면</div>
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li><a href="https://money.onestepblog.info/2026/06/1032-2026-6.html">장위 푸르지오 마크원 — 일반분양 1,032세대, 예상 분양가·타입·일정</a></li>
+<li><a href="https://money.onestepblog.info/2026/06/2026.html">방배 포레스트자이 — 강남권 분양가상한제 '로또청약' 분석</a></li>
+</ul>
+</div>
+
 > 본 글은 화성동탄2 C-27블록 공공분양 입주자모집공고(LH, 2026.05.29)를 정리한 정보용입니다. 분양가·자격·중도금 조건은 신청 전 LH청약플러스 공고문 최종본에서 반드시 확인하세요.

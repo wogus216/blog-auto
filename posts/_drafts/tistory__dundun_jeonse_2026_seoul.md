@@ -74,4 +74,12 @@ LH가 도심의 다세대·연립·**오피스텔·아파트**를 매입해서, 
 - **신청**: [LH청약플러스 apply.lh.or.kr](https://apply.lh.or.kr)
 - **상담**: 마이홈콜센터 ☎ 1600-1004 (2→3) / [마이홈포털](https://www.myhome.go.kr/)
 
+<div style="border:1px solid #e5e7eb;border-left:4px solid #059669;background:#f8fafc;border-radius:8px;padding:18px 20px;margin:28px 0;">
+<div style="font-weight:700;font-size:15px;margin-bottom:10px;">🏠 청약·주거 지원, 더 찾아보고 싶다면</div>
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li><a href="https://money.onestepblog.info/2026/06/2026-6.html">2026년 6월 무순위 청약 개편 — '줍줍 무주택자만' 바뀐 자격·신청법</a></li>
+<li><a href="https://money.onestepblog.info/2026/06/5.html">분양 단지 손품 파는 법 — 청약홈·호갱노노·아실 5단계 체크</a></li>
+</ul>
+</div>
+
 > 본 글은 LH 든든전세주택(비분양전환형) 2026년 1차 모집공고(서울본부)를 정리한 정보용입니다. 보증금·자격·일정은 신청 전 LH청약플러스 공고문 최종본에서 다시 확인하세요.
