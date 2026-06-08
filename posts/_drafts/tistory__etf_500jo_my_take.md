@@ -107,6 +107,7 @@ tags: ['ETF', '순자산500조', 'ETF투자', '국내ETF', '단일종목ETF', 'A
 <ul style="margin:0;padding-left:18px;line-height:1.9;">
 <li><a href="https://www.onestepblog.info/2026/06/etf-500-etf-qqq-vs-tiger-isa-2026-6.html">미국 ETF 직구(QQQ) vs 국내상장(TIGER) — 세금·ISA 완전정리</a></li>
 <li><a href="https://www.onestepblog.info/2026/06/etf-jepijepq-vs-tigerkodex-2026-6.html">월배당 커버드콜 ETF 총정리 — JEPI·JEPQ vs 국내상장, 분배율·세금</a></li>
+<li><a href="https://www.onestepblog.info/2026/06/4-ai-2026-6.html">나스닥 -4% 역대 최대 낙폭, 왜 터졌나 — 브로드컴 AI 쇼크·금리·검은 금요일 완전 해부</a></li>
 </ul>
 </div>
 

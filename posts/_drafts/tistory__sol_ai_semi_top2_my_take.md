@@ -122,6 +122,7 @@ ETF 한 종목을 사기 전에 항상 본인 전체 포트폴리오에서 이 �
 <ul style="margin:0;padding-left:18px;line-height:1.9;">
 <li><a href="https://www.onestepblog.info/2026/05/sol-aitop2-0167a0-isa.html">SOL AI반도체TOP2 총비용·수수료·세금 완전분해 — ISA/연금 절세 시나리오</a></li>
 <li><a href="https://www.onestepblog.info/2026/05/kodex-aitop2-vs-sol-aitop2-etf.html">KODEX vs SOL AI반도체TOP2 — 같은 이름, 다른 ETF 완전비교</a></li>
+<li><a href="https://www.onestepblog.info/2026/06/4-ai-2026-6.html">나스닥 -4% 역대 최대 낙폭 완전 해부 — 브로드컴 AI 쇼크가 반도체를 흔든 이유</a></li>
 </ul>
 </div>
 

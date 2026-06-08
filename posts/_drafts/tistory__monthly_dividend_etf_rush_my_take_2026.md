@@ -45,6 +45,7 @@ source: K-ETF·각 운용사 분배율 공시 + 증시 보도 종합 (2026.06 �
 <ul style="margin:0;padding-left:18px;line-height:1.9;">
 <li><a href="https://www.onestepblog.info/2026/06/etf-jepijepq-vs-tigerkodex-2026-6.html">월배당 커버드콜 ETF 총정리 — JEPI·JEPQ vs 국내상장(TIGER·KODEX), 분배율·세금·계좌별 고르는 법</a></li>
 <li><a href="https://www.onestepblog.info/2026/06/etf-15-3-2026-6.html">커버드콜 ETF, '월 분배율 15%'만 보고 사면 안 되는 이유 — 사기 전 체크 3가지</a></li>
+<li><a href="https://www.onestepblog.info/2026/06/4-ai-2026-6.html">나스닥 -4% 역대 최대 낙폭 완전 해부 — 변동성 장에서 월배당이 부각되는 이유</a></li>
 </ul>
 </div>
 
