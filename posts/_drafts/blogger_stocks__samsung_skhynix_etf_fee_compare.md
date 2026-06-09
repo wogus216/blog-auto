@@ -96,6 +96,33 @@ SK하이닉스 쪽은 신한 SOL이 한 자리 더 들어온다.
      data-ad-slot="2292244154"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
+## 🚨 실제로 터진 사고 — 6/8 ACE 하이닉스 레버리지 '50% 폭등'의 정체
+
+위에서 짚은 '유동성·괴리율 위험'이 상장 2주도 안 돼 실제 사고로 터졌다. 2026년 6월 8일, **ACE SK하이닉스단일종목레버리지**가 전 거래일 대비 **+49.70%(3만원)**로 마감했다. 문제는 그날 기초자산이 오히려 **떨어졌다**는 것이다.
+
+그날 SK하이닉스는 **-7.68%**(191만 1,000원) 하락 마감했다. 2배 레버리지의 정상 반응이라면 약 **-15% 안팎** 하락해야 한다. 실제로 같은 SK하이닉스 단일종목 레버리지 ETF들은 정상적으로 하락했는데, **ACE 한 종목만 방향이 반대로 폭등**했다.
+
+<table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;"><thead><tr style="background:#1e293b;color:#fff;"><th style="padding:12px;text-align:left;">6/8 SK하이닉스 -7.68%일 때</th><th style="padding:12px;text-align:right;">당일 등락(참고치)</th></tr></thead><tbody><tr><td style="padding:10px;font-weight:700;background:#fee2e2;">ACE SK하이닉스단일종목레버리지</td><td style="padding:10px;text-align:right;color:#dc2626;font-weight:800;">+49.70%</td></tr><tr><td style="padding:10px;">KODEX SK하이닉스단일종목레버리지</td><td style="padding:10px;text-align:right;">-15.31%</td></tr><tr><td style="padding:10px;">TIGER SK하이닉스단일종목레버리지</td><td style="padding:10px;text-align:right;">-16.73%</td></tr><tr><td style="padding:10px;">SOL SK하이닉스단일종목레버리지</td><td style="padding:10px;text-align:right;">-16.11%</td></tr></tbody></table>
+
+### 왜 ACE만 그랬나 — '호가 공백' 사고
+
+운용사(한국투자신탁운용)와 언론 보도에 따르면, 원인은 상품의 가치가 아니라 **거래 구조의 빈틈**이었다.
+
+- **장 마감 직전**에는 유동성공급자(LP)의 호가 제출 의무가 면제되는 시간대가 있다
+- 이 시간에 매도·매수 호가가 비어 **호가 공백**이 생겼고
+- 그 벌어진 호가에 **시장가 매수** 주문이 체결되면서 가격이 실제 가치와 동떨어지게 튀어 올랐다
+
+즉 ACE 상품이 좋아서 오른 게 아니라, **유동성이 얇은 시간대 + 시장가 주문**이 겹쳐 발생한 일시적 가격 왜곡이다. 시장가격이 NAV(실제 순자산가치)와 무관하게 튄 것이라, 정상가(다른 상품 수준인 1만 6,000원선)로 수렴하면 **3만 원에 산 투자자는 약 50%의 손실**을 보게 된다는 분석이 나온다. ([한국경제](https://www.hankyung.com/article/202606084178i), [머니투데이](https://www.mt.co.kr/stock/2026/06/08/2026060816490173049))
+
+### 이 사고가 주는 교훈
+
+이건 이 글이 앞서 경고한 위험들이 한꺼번에 현실화된 사례다.
+
+- **단일종목 레버리지는 유동성이 얇을 수 있다** — 특히 중소형 운용사 상품, 종가 무렵
+- **시장가 주문은 위험하다** — 호가가 비면 엉뚱한 가격에 체결된다. 지정가 주문이 더 안전하다
+- **괴리율을 확인하라** — 시장가격이 NAV보다 크게 벌어진 상태면 매수를 피한다
+- 50% 급등 같은 비정상 움직임은 **호재가 아니라 사고일 가능성**을 먼저 의심해야 한다
+
 ## ⚙️ '선물형' vs '실물형' 차이
 
 상품명을 잘 보면 둘로 갈린다.
