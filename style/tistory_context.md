@@ -13,6 +13,36 @@
 - 숫자를 아끼지 말 것. 페이스, 심박, OPS, WHIP 같은 지표는 문단 안에 자연스럽게.
 - 과장 금지. "역대급", "레전드" 남발하지 않음.
 
+## 글 분량·구조 (필수 — 이거 안 지키면 발행 금지)
+
+티스토리 글은 **역할에 따라 분량이 갈린다.**
+
+### A. 독립 심층 본글 (러닝·야구 = 티스토리 메인 니치)
+- **최소 8,000자.** 짧은 관점글로 끝내지 말 것. 깊이가 체류시간·SEO의 핵심.
+- 구조: ① 경험·후크 도입 → ② 핵심 요약 박스(HTML) → ③ 본문 6~10개 H2 섹션 → ④ 비교표/체크리스트 → ⑤ FAQ(3~5개, GEO용) → ⑥ 정리 + CTA
+- 숫자·실측·구체 모델명/대회명을 아끼지 말 것.
+
+### B. 퍼널 요약글 (부동산·주식 등 교차 글감만)
+- 1,500~2,500자. 핵심 요약 + **money/www 본글로 보내는 링크 퍼널**.
+- 러닝·야구는 절대 요약글로 쓰지 않는다(독립 본글이 원칙).
+
+## 이미지 (필수 — 최소 2장, 권장 3~4장)
+
+**텍스트 전용 글 발행 금지.** 모든 글에 이미지가 들어가야 한다.
+
+- **1순위: 브랜드 공식 캡처** — 러닝화 모델 공식 페이지를 `scripts/capture_page.py` 로 캡처(자동 push) 후 본문에 `{{broker:<key>}}` 토큰 한 줄 → 발행 시 이미지+출처 자동 삽입. 예:
+  `uv run python scripts/capture_page.py --url "<제품페이지>" --key shoe_pegasus41 --broker "Nike" --topic "페가수스 41" --viewport-only`
+  (`--selector "<css>"` 로 제품컷만 따면 더 깔끔. Openverse `search_image` 는 CC 전용이라 브랜드컷 거의 안 나옴 — 사실상 미사용.)
+- **못 구하면: placeholder 이미지 슬롯** + 캡션 명시 + 그만큼 GEO/SEO·설명 보강으로 전환([[feedback_image_placeholder_fallback]]).
+- **분위기·헤더컷: 무료 스톡(Unsplash)** — 특정 모델이 아닌 일반 러닝/야구 분위기컷은 `scripts/unsplash_fetch.py --query "<영문 검색어>" --key <key> --topic "<설명>"` → `{{broker:<key>}}` 토큰. 작가+Unsplash 출처표시 자동, 저작권 안전(상업 무료).
+- **보조: 인포그래픽 HTML 카드** — 수치·비교·타임라인 시각화(저작권 0). 사진과 병행.
+- 배치: **헤더 이미지 1장 + 본문 분산 2~3장**(H2 섹션 사이).
+- 저작권: 공식·무료(Unsplash/Pexels)·CC만. 출처 캡션. 공식 자료/공고문은 출처표시 시 캡처 가능([[project_pdf_screenshot_embed]]).
+
+## CTA (러닝 글 필수)
+
+- 러닝화·러닝 글은 **마지막에 allrunabout.com CTA 블록 필수**([[feedback_running_post_cta]]). 티스토리는 인페이지 광고만, 고RPM은 allrunabout로 유도([[feedback_tistory_ad_policy_anchor_ban]]).
+
 ## 카테고리 (블로그 설정과 일치시킬 것, 실제 값은 로그인 후 확인)
 - 러닝 / 훈련
 - 러닝 / 장비
