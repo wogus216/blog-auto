@@ -36,6 +36,7 @@
 - **못 구하면: placeholder 이미지 슬롯** + 캡션 명시 + 그만큼 GEO/SEO·설명 보강으로 전환([[feedback_image_placeholder_fallback]]).
 - **분위기·헤더컷: 무료 스톡(Unsplash)** — 특정 모델이 아닌 일반 러닝/야구 분위기컷은 `scripts/unsplash_fetch.py --query "<영문 검색어>" --key <key> --topic "<설명>"` → `{{broker:<key>}}` 토큰. 작가+Unsplash 출처표시 자동, 저작권 안전(상업 무료).
 - **보조: 인포그래픽 HTML 카드** — 수치·비교·타임라인 시각화(저작권 0). 사진과 병행.
+- **임의 이미지(출처표시)**: 위로 못 구할 때 `scripts/fetch_image.py --url <이미지주소> --source <원본페이지> --credit <출처명> --key <key>` → `{{broker:<key>}}`. ⚠️ 출처표시가 저작권을 면책하진 않음 — 공식캡처·무료스톡·AI를 우선하고 이건 최후 수단.
 - 배치: **헤더 이미지 1장 + 본문 분산 2~3장**(H2 섹션 사이).
 - 저작권: 공식·무료(Unsplash/Pexels)·CC만. 출처 캡션. 공식 자료/공고문은 출처표시 시 캡처 가능([[project_pdf_screenshot_embed]]).
 

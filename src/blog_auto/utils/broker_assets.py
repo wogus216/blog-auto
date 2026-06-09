@@ -33,12 +33,14 @@ def _img_block(asset: dict) -> str:
     caption = f"{asset['broker']} {asset['topic']}".strip()
     date = asset["captured_at"][:10]
     label = asset.get("source_label", "공식 페이지")  # 무료스톡 등은 "on Unsplash" 같은 값
-    date_kind = asset.get("date_kind", "캡처")        # 스톡 사진은 "사진"
-    return (
-        f"\n![{caption}]({asset['raw_url']})\n"
-        f"*출처: [{asset['broker']} {label}]({asset['source_url']}) "
-        f"({date_kind} {date})*\n"
-    )
+    date_kind = asset.get("date_kind", "캡처")        # 스톡 사진은 "사진", AI는 "생성"
+    src = asset.get("source_url", "")
+    if src:
+        credit = f"*출처: [{asset['broker']} {label}]({src}) ({date_kind} {date})*"
+    else:
+        # AI 생성 이미지 등 출처 링크가 없는 경우 — 링크 없이 명시만
+        credit = f"*{asset['broker']} ({date_kind} {date})*"
+    return f"\n![{caption}]({asset['raw_url']})\n{credit}\n"
 
 
 def _link(asset: dict) -> str:
