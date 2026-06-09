@@ -30,12 +30,14 @@ def _load() -> dict:
 
 
 def _img_block(asset: dict) -> str:
-    caption = f"{asset['broker']} {asset['topic']}"
+    caption = f"{asset['broker']} {asset['topic']}".strip()
     date = asset["captured_at"][:10]
+    label = asset.get("source_label", "공식 페이지")  # 무료스톡 등은 "on Unsplash" 같은 값
+    date_kind = asset.get("date_kind", "캡처")        # 스톡 사진은 "사진"
     return (
         f"\n![{caption}]({asset['raw_url']})\n"
-        f"*출처: [{asset['broker']} 공식 페이지]({asset['source_url']}) "
-        f"(캡처 {date})*\n"
+        f"*출처: [{asset['broker']} {label}]({asset['source_url']}) "
+        f"({date_kind} {date})*\n"
     )
 
 

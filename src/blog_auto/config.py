@@ -13,6 +13,8 @@ SESSIONS_DIR = ROOT / "sessions"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-7")
 
+UNSPLASH_ACCESS_KEY = os.environ.get("UNSPLASH_ACCESS_KEY", "")
+
 TISTORY_BLOG_NAME = os.environ.get("TISTORY_BLOG_NAME", "")
 NAVER_BLOG_ID = os.environ.get("NAVER_BLOG_ID", "")
 BLOGGER_BLOG_ID = os.environ.get("BLOGGER_BLOG_ID", "6566918690057179781")  # consistency.onestepblog.info 범용/러닝
