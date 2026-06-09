@@ -491,3 +491,235 @@ class NaverPublisher(BasePublisher):
             except Exception:
                 continue
         return False
+
+    # ──────────────────── 기존 글 수정 (update) ────────────────────
+    def _enter_main_frame(self, page):
+        """글쓰기/수정 iframe(mainFrame) 진입. publish 의 frame 탐색과 동일 전략."""
+        mf = page.frame(name="mainFrame")
+        if mf:
+            return mf
+        page.wait_for_timeout(3000)
+        for f in page.frames:
+            if f == page.main_frame:
+                continue
+            u = f.url or ""
+            if "PostWrite" in u or "postwrite" in u.lower() or "PostUpdate" in u:
+                return f
+        if len(page.frames) >= 2:
+            return page.frames[1]
+        return None
+
+    def _dismiss_popups(self, mf, page):
+        """진입 시 뜨는 팝업(임시저장 글 등) 닫기."""
+        for sel in (
+            ".se-popup-button-cancel",
+            ".se-popup-alert-confirm button:has-text('취소')",
+            ".se-popup-alert-confirm button:has-text('확인')",
+            ".se-popup-alert-confirm button:has-text('새로 작성')",
+            ".se-popup-button:has-text('확인')",
+            ".se-popup button.se-popup-button",
+        ):
+            try:
+                btn = mf.query_selector(sel)
+                if btn:
+                    btn.click()
+                    self.tiny_pause()
+                    break
+            except Exception:
+                continue
+        try:
+            mf.wait_for_selector(".se-popup-dim", state="hidden", timeout=5000)
+        except Exception:
+            try:
+                page.keyboard.press("Escape")
+            except Exception:
+                pass
+
+    def _resolve_body_frame(self, page, mf):
+        """contenteditable 이 있는 frame(본문)을 찾는다. (publish 의 본문 frame 탐색과 동일)"""
+        target = None
+        for f in page.frames:
+            try:
+                if "input_buffer" in (f.name or ""):
+                    continue
+                info = f.evaluate(
+                    """() => ({ n: document.querySelectorAll(
+                        '[contenteditable="true"], .se-text, .se-component-content').length })"""
+                )
+                if info and info.get("n", 0) > 0:
+                    target = f
+            except Exception:
+                continue
+        return target or mf
+
+    def update(
+        self,
+        req: PublishRequest,
+        log_no: str,
+        *,
+        content_mode: str = "append",
+        update_title: bool = False,
+    ) -> PublishResult:
+        """이미 발행된 네이버 글(logNo)의 본문을 수정한다.
+
+        content_mode:
+          append  — 기존 본문 끝에 req.body_md 를 덧붙임 (기본, 안전)
+          replace — 기존 본문을 req.body_md 로 전체 교체 (이미지·서식 재생성되니 주의)
+        update_title — True 면 제목도 req.title 로 교체.
+
+        네이버는 최종 '수정/발행' 버튼이 isTrusted 검증으로 자동클릭이 막히므로,
+        본문 주입까지 자동으로 한 뒤 발행 패널을 열어 사람이 직접 누르는 semi 흐름으로 마무리.
+        """
+        if content_mode not in ("append", "replace"):
+            return PublishResult(url=None, ok=False, note=f"content_mode 오류: {content_mode}")
+        if not has_profile("naver"):
+            return PublishResult(url=None, ok=False, note="세션 없음. `cli login naver` 먼저 실행.")
+
+        html_body = md_lib.markdown(req.body_md, extensions=_MD_EXTENSIONS)
+        update_url = (
+            f"https://blog.naver.com/{config.NAVER_BLOG_ID}?Redirect=Update&logNo={log_no}"
+        )
+
+        with open_context("naver") as ctx:
+            try:
+                ctx.grant_permissions(
+                    ["clipboard-read", "clipboard-write"], origin="https://blog.naver.com"
+                )
+            except Exception as e:
+                print(f"[DEBUG] clipboard 권한 부여 실패(무시 가능): {e}")
+
+            page = ctx.pages[0] if ctx.pages else ctx.new_page()
+            page.on("dialog", lambda d: d.accept())
+            page.goto(update_url, wait_until="networkidle")
+            self.tiny_pause()
+
+            if "nidlogin" in page.url or "nid.naver.com" in page.url:
+                return PublishResult(url=None, ok=False, note=f"로그인 리다이렉트 ({page.url}) — 재로그인 필요")
+
+            mf = self._enter_main_frame(page)
+            if not mf:
+                print(f"[DEBUG] frames={[{'name': f.name, 'url': f.url[:100]} for f in page.frames]}")
+                return PublishResult(url=None, ok=False, note=f"mainFrame 없음 (url={page.url})")
+            print(f"[DEBUG] iframe 진입: name='{mf.name}' url={mf.url[:120]}")
+
+            self._dismiss_popups(mf, page)
+
+            try:
+                mf.wait_for_selector(".se-component.se-text", timeout=10000)
+            except Exception:
+                print("[DEBUG] 기존 본문 로드 대기 실패 — 계속 진행")
+
+            if update_title and req.title:
+                try:
+                    mf.click(".se-section-documentTitle")
+                    self.tiny_pause()
+                    page.keyboard.press(f"{_PASTE_MODIFIER}+A")
+                    page.keyboard.type(req.title)
+                    self.tiny_pause()
+                except Exception as e:
+                    print(f"[DEBUG] 제목 교체 실패(무시): {e}")
+
+            try:
+                mf.click(".se-section-text")
+            except Exception:
+                pass
+            self.tiny_pause()
+            target_frame = self._resolve_body_frame(page, mf)
+            print(f"[DEBUG] 본문 target frame: name='{target_frame.name}'")
+
+            if content_mode == "append":
+                pos = target_frame.evaluate(
+                    """() => {
+                        const comps = document.querySelectorAll('.se-component.se-text');
+                        if (!comps.length) return {ok:false, reason:'no se-text'};
+                        const last = comps[comps.length-1];
+                        const ed = last.querySelector('[contenteditable="true"]')
+                                || last.querySelector('.se-text-paragraph') || last;
+                        ed.focus();
+                        const r = document.createRange();
+                        r.selectNodeContents(ed); r.collapse(false);
+                        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+                        return {ok:true, comps: comps.length};
+                    }"""
+                )
+                print(f"[DEBUG] append 커서: {pos}")
+                if not pos or not pos.get("ok"):
+                    return PublishResult(url=None, ok=False, note=f"본문 끝 커서 실패: {pos}")
+                page.keyboard.press("Enter")
+                self.tiny_pause()
+            else:  # replace
+                focus = target_frame.evaluate(
+                    """() => {
+                        const comps = document.querySelectorAll('.se-component.se-text');
+                        if (!comps.length) return {ok:false, reason:'no se-text'};
+                        const ed = comps[0].querySelector('[contenteditable="true"]') || comps[0];
+                        ed.focus();
+                        return {ok:true};
+                    }"""
+                )
+                print(f"[DEBUG] replace focus: {focus}")
+                if not focus or not focus.get("ok"):
+                    return PublishResult(url=None, ok=False, note=f"본문 focus 실패: {focus}")
+                page.keyboard.press(f"{_PASTE_MODIFIER}+A")
+                self.tiny_pause()
+
+            clip = page.evaluate(
+                """async (html) => {
+                    try {
+                        const plain = html.replace(/<[^>]+>/g, '');
+                        const item = new ClipboardItem({
+                            'text/html': new Blob([html], {type:'text/html'}),
+                            'text/plain': new Blob([plain], {type:'text/plain'})
+                        });
+                        await navigator.clipboard.write([item]);
+                        return {ok:true};
+                    } catch(e) { return {ok:false, error:String(e)}; }
+                }""",
+                html_body,
+            )
+            print(f"[DEBUG] clipboard.write: {clip}")
+            if not clip or not clip.get("ok"):
+                return PublishResult(url=None, ok=False, note=f"clipboard.write 실패: {clip}")
+
+            page.keyboard.press(f"{_PASTE_MODIFIER}+V")
+            self.tiny_pause()
+            self.tiny_pause()
+
+            chk = target_frame.evaluate(
+                """() => {
+                    let t = 0;
+                    document.querySelectorAll('.se-component.se-text').forEach(c => {
+                        const ed = c.querySelector('[contenteditable="true"]') || c;
+                        t += (ed.innerText||'').length;
+                    });
+                    return {len: t};
+                }"""
+            )
+            paste_len = chk.get("len", 0) if chk else 0
+            print(f"[DEBUG] paste 후 본문 총 길이: {paste_len}")
+            if paste_len < 100:
+                return PublishResult(url=None, ok=False, note=f"paste 후 본문 길이 부족({paste_len}) — 수정 중단")
+
+            try:
+                mf.click("button.publish_btn__m9KHH")
+                mf.wait_for_selector(
+                    ".layer_popup__i0QOY.is_show__TMSLq, button.confirm_btn__WEaBq", timeout=8000
+                )
+            except Exception as e:
+                print(f"[DEBUG] 발행 패널 열기 이슈(수동 진행 가능): {e}")
+
+            print("\n" + "=" * 60)
+            print(f"[naver update] 본문 '{content_mode}' 반영 완료. 발행 패널이 열렸습니다.")
+            print("브라우저 우하단 '수정'(또는 '발행') 버튼을 직접 클릭하세요.")
+            print("완료 후 이 터미널에서 Enter를 누르세요.")
+            print("=" * 60)
+            try:
+                input("Enter로 종료: ")
+            except EOFError:
+                pass
+
+            final_url = page.url
+            ok = "PostView" in final_url or str(log_no) in final_url
+            return PublishResult(
+                url=final_url, ok=ok, note=f"수정({content_mode}) {'완료' if ok else 'semi 종료'}"
+            )

@@ -108,5 +108,42 @@ def publish(
     print(result)
 
 
+@app.command()
+def update_naver(
+    draft_path: str = typer.Argument(..., help="posts/_drafts/ 의 .md (replace=전체 글, append=추가할 내용만)"),
+    log_no: str = typer.Option(..., "--log-no", help="네이버 글 logNo (URL 끝 숫자)"),
+    content_mode: str = typer.Option("append", help="append(본문 끝 추가) | replace(전체 교체)"),
+    update_title: bool = typer.Option(False, help="제목도 frontmatter title 로 교체"),
+):
+    """네이버 발행글 본문 수정. append=추가할 내용만 든 .md, replace=전체 글 .md."""
+    from pathlib import Path
+    import re
+
+    text = Path(draft_path).read_text(encoding="utf-8")
+    fm_match = re.match(r"^---\n(.*?)\n---\n\n(.*)$", text, re.DOTALL)
+    if not fm_match:
+        raise typer.BadParameter("frontmatter 없음. (--- ... --- 형식 필요)")
+    fm_raw, body = fm_match.groups()
+    meta: dict[str, str] = {}
+    for line in fm_raw.splitlines():
+        k, _, v = line.partition(":")
+        meta[k.strip()] = v.strip()
+
+    tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
+    body = inject_broker_assets(body)
+    title = meta.get("title", "").strip().strip('"').strip("'")
+
+    if meta.get("platform") != "naver":
+        print(f"[yellow]경고: platform={meta.get('platform')} (naver 아님). 그래도 진행합니다.[/]")
+
+    req = PublishRequest(
+        title=title, body_md=body, tags=tags, category=meta.get("category", ""), mode="publish"
+    )
+    result = NaverPublisher().update(
+        req, log_no, content_mode=content_mode, update_title=update_title
+    )
+    print(result)
+
+
 if __name__ == "__main__":
     app()
