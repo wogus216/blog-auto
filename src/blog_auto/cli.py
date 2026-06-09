@@ -145,5 +145,39 @@ def update_naver(
     print(result)
 
 
+@app.command()
+def update_tistory(
+    draft_path: str = typer.Argument(..., help="posts/_drafts/ 의 .md (전체 글)"),
+    post_id: str = typer.Option(..., "--post-id", help="티스토리 글 번호 (글 HTML의 entryId / RSS로 확인)"),
+):
+    """티스토리 발행글 본문 전체 수정(덮어쓰기 후 재발행). {{broker:키}} 토큰도 자동 치환."""
+    from pathlib import Path
+    import re
+
+    text = Path(draft_path).read_text(encoding="utf-8")
+    fm_match = re.match(r"^---\n(.*?)\n---\n\n(.*)$", text, re.DOTALL)
+    if not fm_match:
+        raise typer.BadParameter("frontmatter 없음. (--- ... --- 형식 필요)")
+    fm_raw, body = fm_match.groups()
+    meta: dict[str, str] = {}
+    for line in fm_raw.splitlines():
+        k, _, v = line.partition(":")
+        meta[k.strip()] = v.strip()
+
+    tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
+    body = inject_broker_assets(body)
+    title = meta.get("title", "").strip().strip('"').strip("'")
+
+    if meta.get("platform") != "tistory":
+        print(f"[yellow]경고: platform={meta.get('platform')} (tistory 아님). 그래도 진행합니다.[/]")
+
+    req = PublishRequest(
+        title=title, body_md=body, tags=tags, category=meta.get("category", ""),
+        mode="publish", cta_url=meta.get("cta_url") or None, cta_text=meta.get("cta_text") or None,
+    )
+    result = TistoryPublisher().update_post(post_id, req)
+    print(result)
+
+
 if __name__ == "__main__":
     app()
