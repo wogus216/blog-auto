@@ -14,6 +14,9 @@ posts/_published/
 
 credentials/
 
+# Claude 개인 메모리 디렉토리 (repo에 잘못 생성되는 경우 방지)
+memory/
+
 # 이미지 호스팅용 별도 git repo (wogus216/blog-assets) — 중첩 repo라 blog-auto에선 추적 안 함
 assets/
 
