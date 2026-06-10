@@ -1,7 +1,7 @@
 ---
 title: "SH 행복주택 6/15 청약 D-6 — 강남 디에이치도 임대로? 1,884호 핵심만"
 platform: tistory
-category: 생활정보
+category: 재테크
 tags: [행복주택, SH청약, 행복주택청약, 청년주택, 신혼부부, 공공임대, 2026청약]
 date: 2026-06-09
 status: draft
