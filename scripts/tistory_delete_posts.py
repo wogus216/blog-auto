@@ -24,7 +24,7 @@ from blog_auto.publishers.session import open_context  # noqa: E402
 from update_tistory_running import _handle_kakao_login  # noqa: E402
 
 BLOG = config.TISTORY_BLOG_NAME
-TARGET_IDS = ["837", "838"]
+TARGET_IDS = [x for x in os.environ.get("TARGET_IDS", "837,838").split(",") if x]
 ACTION = os.environ.get("ACTION", "scan")
 
 
