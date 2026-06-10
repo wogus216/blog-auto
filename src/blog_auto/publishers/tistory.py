@@ -122,10 +122,13 @@ class TistoryPublisher(BasePublisher):
             if req.category:
                 page.evaluate("() => document.querySelector('#category-btn').click()")
                 self.tiny_pause()
-                cat_el = page.query_selector(f"#category-list [aria-label='{req.category}']")
+                # 정확 매칭 → 부분 매칭 fallback (하위 카테고리는 aria-label이 '- 운동'처럼 prefix 붙음)
+                cat_el = (page.query_selector(f"#category-list [aria-label='{req.category}']")
+                          or page.query_selector(f"#category-list [aria-label*='{req.category}']"))
                 if cat_el:
                     cat_el.click()
                 else:
+                    print(f"[DEBUG] 카테고리 '{req.category}' 매칭 실패 — 미설정")
                     page.keyboard.press("Escape")
                 self.tiny_pause()
 
@@ -165,20 +168,14 @@ class TistoryPublisher(BasePublisher):
                     print(f"[DEBUG] 태그 셀렉터: {tag_selector}")
                     # Playwright fill/click이 actionability 검사로 실패 → JS evaluate로 직접 dispatch
                     for tag in req.tags:
+                        # 합성 이벤트는 티스토리가 무시(isTrusted=false) → 실제 키 입력으로 태그 칩 생성
                         page.evaluate(
-                            """({sel, val}) => {
-                                const el = document.querySelector(sel);
-                                if (!el) return;
-                                el.focus();
-                                el.value = val;
-                                el.dispatchEvent(new Event('input', {bubbles: true}));
-                                el.dispatchEvent(new Event('change', {bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keypress', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keyup', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                            }""",
-                            {"sel": tag_selector, "val": tag},
+                            "(sel) => { const el = document.querySelector(sel); if (el) { el.focus(); el.value = ''; } }",
+                            tag_selector,
                         )
+                        page.keyboard.type(tag)
+                        self.tiny_pause()
+                        page.keyboard.press("Enter")
                         self.tiny_pause()
 
             post_url: str | None = None
@@ -497,10 +494,13 @@ class TistoryPublisher(BasePublisher):
             if req.category:
                 page.evaluate("() => document.querySelector('#category-btn').click()")
                 self.tiny_pause()
-                cat_el = page.query_selector(f"#category-list [aria-label='{req.category}']")
+                # 정확 매칭 → 부분 매칭 fallback (하위 카테고리는 aria-label이 '- 운동'처럼 prefix 붙음)
+                cat_el = (page.query_selector(f"#category-list [aria-label='{req.category}']")
+                          or page.query_selector(f"#category-list [aria-label*='{req.category}']"))
                 if cat_el:
                     cat_el.click()
                 else:
+                    print(f"[DEBUG] 카테고리 '{req.category}' 매칭 실패 — 미설정")
                     page.keyboard.press("Escape")
                 self.tiny_pause()
 
@@ -519,20 +519,14 @@ class TistoryPublisher(BasePublisher):
                 if tag_selector:
                     print(f"[DEBUG] update 태그 셀렉터: {tag_selector}")
                     for tag in req.tags:
+                        # 합성 이벤트는 티스토리가 무시(isTrusted=false) → 실제 키 입력으로 태그 칩 생성
                         page.evaluate(
-                            """({sel, val}) => {
-                                const el = document.querySelector(sel);
-                                if (!el) return;
-                                el.focus();
-                                el.value = val;
-                                el.dispatchEvent(new Event('input', {bubbles: true}));
-                                el.dispatchEvent(new Event('change', {bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keypress', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                                el.dispatchEvent(new KeyboardEvent('keyup', {key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true}));
-                            }""",
-                            {"sel": tag_selector, "val": tag},
+                            "(sel) => { const el = document.querySelector(sel); if (el) { el.focus(); el.value = ''; } }",
+                            tag_selector,
                         )
+                        page.keyboard.type(tag)
+                        self.tiny_pause()
+                        page.keyboard.press("Enter")
                         self.tiny_pause()
 
             # dialog/console 핸들러
