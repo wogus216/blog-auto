@@ -359,6 +359,56 @@ class TistoryPublisher(BasePublisher):
                     if shown == target_date:
                         year_ok = month_ok = day_ok = True
                         print("[DEBUG] 예약일이 이미 target과 동일 — 날짜 변경 불필요, 통과")
+                    else:
+                        # 신 UI 캘린더: btn_reserve 클릭 → table.tbl_calendar →
+                        # td > button.btn_day(날짜 텍스트, 과거는 disabled) 클릭.
+                        # 월이 다르면 헤더 이전/다음 버튼으로 이동 후 일자 클릭.
+                        try:
+                            page.click("button.btn_reserve")
+                            page.wait_for_timeout(700)
+                            target_ym = f"{dt.year:04d}-{dt.month:02d}"
+                            shown_ym = shown[:7] if shown else None
+                            if shown_ym and shown_ym != target_ym:
+                                for _ in range(12):
+                                    cur = page.evaluate(
+                                        "() => { const b=document.querySelector('button.btn_reserve');"
+                                        " return b ? b.textContent.trim() : null; }"
+                                    )
+                                    cur_ym = cur[:7] if cur else None
+                                    if cur_ym == target_ym:
+                                        break
+                                    direction = "next" if target_ym > (cur_ym or "") else "prev"
+                                    moved = page.evaluate(
+                                        "(dir) => {"
+                                        " const kw = dir==='next' ? ['다음','next','right'] : ['이전','prev','left'];"
+                                        " const btns = Array.from(document.querySelectorAll('button,a'));"
+                                        " for (const b of btns){ if(b.offsetParent===null) continue;"
+                                        "  const t=(b.textContent+' '+b.className+' '+(b.getAttribute('aria-label')||'')).toLowerCase();"
+                                        "  if(kw.some(k=>t.includes(k))){ b.click(); return true; } }"
+                                        " return false; }",
+                                        direction,
+                                    )
+                                    page.wait_for_timeout(500)
+                                    if not moved:
+                                        break
+                            clicked = page.evaluate(
+                                "(day) => {"
+                                " const btns = Array.from(document.querySelectorAll('table.tbl_calendar button.btn_day'));"
+                                " const b = btns.find(x => x.textContent.trim() === String(day) && !x.disabled);"
+                                " if (b) { b.click(); return true; } return false; }",
+                                dt.day,
+                            )
+                            page.wait_for_timeout(500)
+                            new_shown = page.evaluate(
+                                "() => { const b=document.querySelector('button.btn_reserve');"
+                                " return b ? b.textContent.trim() : null; }"
+                            )
+                            print(f"[DEBUG] 캘린더 일자 클릭됨={clicked}, 표시일={new_shown}")
+                            if new_shown == target_date:
+                                year_ok = month_ok = day_ok = True
+                                print("[DEBUG] 캘린더로 날짜 적용 성공")
+                        except Exception as e:
+                            print(f"[DEBUG] 캘린더 날짜 선택 실패: {e}")
 
                 # 시간만 통과하고 날짜 미적용이면 잘못된 시각에 발행되므로 명시적 중단
                 # (실제 사례: 5/22 11:25에 등록 시 5/23·24·25·26 예약이 모두 5/22 11:25에 발행됨)
