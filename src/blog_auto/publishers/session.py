@@ -33,9 +33,12 @@ Platform = Literal["tistory", "naver"]
 _COOKIE_TTL = 60 * 60 * 24 * 30
 
 # 이 쿠키가 하나라도 있어야 '로그인된 상태'로 보고 저장한다(빈/로그아웃 세션이
-# 기존 저장본을 덮어쓰는 것을 방지). 티스토리=티스토리/카카오 인증, 네이버=NID.
+# 기존 저장본을 덮어쓰는 것을 방지).
+# ⚠️ 로그인 시에만 발급되는 쿠키여야 한다. 티스토리 __T_/카카오 _kawlt는
+# 비로그인(게스트) 상태에도 존재하므로 표식으로 부적합. 실측 결과 TSSESSION은
+# 로그인 시에만 생긴다(게스트 /auth/login 상태엔 없음). 네이버 NID_AUT/SES도 동일.
 _AUTH_COOKIE_HINTS: dict[str, tuple[str, ...]] = {
-    "tistory": ("TSSESSION", "__T_", "__T_SECURE", "_kawlt", "_karmt", "_kahai"),
+    "tistory": ("TSSESSION",),
     "naver": ("NID_AUT", "NID_SES"),
 }
 
