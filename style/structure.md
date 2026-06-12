@@ -63,8 +63,22 @@
 
 ### 이미지 (필수 — 최소 2장, 권장 3~4장)
 - **텍스트 전용 글 발행 금지.** `{{broker:<key>}}` 토큰 한 줄이면 발행 시 이미지+출처가 자동 치환된다(`inject_broker_assets`, 플랫폼 무관 동작 — 티스토리와 동일).
-- 제품/공식 컷 = `scripts/capture_page.py` / 분위기·실사 = `scripts/unsplash_fetch.py`(무료) / 수치·비교 = 인포그래픽 HTML 카드 / 공고문 = PDF 캡처([[project_pdf_screenshot_embed]]).
+- 제품/공식 컷 = `scripts/capture_page.py` / 분위기·실사 = `scripts/unsplash_fetch.py`(무료) / 수치·비교 = **데이터 카드 토큰**(아래) / 공고문 = PDF 캡처([[project_pdf_screenshot_embed]]).
 - 배치: 헤더 1장 + 본문 H2 사이 분산 2~3장.
+- **제품 실물컷 캡처**: `capture_page.py`는 기본 레티나 2배(`--scale 2`)·쿠키/팝업 자동 닫기. 셀렉터를 모를 땐 `--auto-product`로 페이지 내 최대 제품 이미지를 자동 추출(봇차단 사이트는 폴백). 화질↑·UI잡동사니↓.
+
+### 데이터 시각화 카드 (수치·비교·일정은 표 대신 카드 토큰)
+- 매번 inline HTML을 손으로 짜지 말 것. 본문에 `:::타입 제목` … `:::` 펜스 토큰만 넣으면 발행 시 인포그래픽 HTML로 자동 치환된다(`inject_viz_cards`). 각 줄은 `|`로 필드 구분.
+- **티스토리·Blogger 전용**(HTML). 네이버는 `strip_viz_cards`가 자동으로 텍스트 불릿 폴백 처리하므로 같은 토큰을 그대로 써도 안전.
+- 타입: `schedule`(날짜·시간 그리드) / `stat`(KPI 하이라이트 박스) / `compare`(2~3열 비교, 마지막 필드 `best`면 추천 강조) / `rank`(TOP 순위, 메달색 자동) / `spec`(라벨-값 스펙).
+- 예:
+  ```
+  :::compare VOO vs KODEX 레버리지
+  VOO (미국) | 운용보수 0.03% / S&P500 추종 / 장기적립 | best
+  KODEX 레버리지 | 보수 0.64% / 코스피 2배 / 단기용
+  :::
+  ```
+- 색·여백은 `html_enhance` 디자인 토큰과 공유 → 글 전체 톤 일관. 비교형 글의 "표 1~2개" 규약을 카드로 충족 가능.
 
 ### Blogger 고유 제약 (어기면 발행 실패/중복)
 - **본문 H1 금지.** frontmatter `title`이 H1로 렌더되므로 본문은 `## `(H2)부터 시작. 위계 H1>H2>H3>H4 ([[feedback_blogger_no_h1_in_body]]).

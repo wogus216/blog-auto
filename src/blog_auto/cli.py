@@ -13,6 +13,7 @@ from blog_auto.publishers.session import save_session
 from blog_auto.publishers.tistory import TistoryPublisher
 from blog_auto.publishers.base import PublishRequest
 from blog_auto.utils.broker_assets import inject_broker_assets
+from blog_auto.utils.viz_cards import inject_viz_cards, strip_viz_cards, theme_for_platform
 
 app = typer.Typer(help="AI blog automation (Tistory + Naver + Blogger + Blogger Stocks)")
 
@@ -77,6 +78,14 @@ def publish(
     tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
 
     body = inject_broker_assets(body)
+    platform_name = meta.get("platform", "tistory")
+    # 데이터 시각화 카드 토큰 → HTML (네이버는 HTML 표 불가라 텍스트 폴백)
+    # 테마는 플랫폼별 자동 선택: money·stocks=refined(차분), 티스토리·consistency=vivid(생기)
+    body = (
+        strip_viz_cards(body)
+        if platform_name == "naver"
+        else inject_viz_cards(body, theme=theme_for_platform(platform_name))
+    )
 
     if mode == "schedule" and not at:
         raise typer.BadParameter("schedule 모드는 --at RFC3339 시간 필요. 예: --at 2026-05-06T08:00:00+09:00")
@@ -93,7 +102,6 @@ def publish(
         cta_text=meta.get("cta_text") or None,
     )
 
-    platform_name = meta.get("platform", "tistory")
     if platform_name == "blogger":
         pub = BloggerPublisher()
     elif platform_name == "blogger_stocks":
@@ -131,6 +139,7 @@ def update_naver(
 
     tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
     body = inject_broker_assets(body)
+    body = strip_viz_cards(body)  # 네이버 — 카드는 텍스트 폴백
     title = meta.get("title", "").strip().strip('"').strip("'")
 
     if meta.get("platform") != "naver":
@@ -166,6 +175,7 @@ def update_tistory(
 
     tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
     body = inject_broker_assets(body)
+    body = inject_viz_cards(body, theme="vivid")  # 티스토리 — 카드 토큰 → HTML(생기 테마)
     title = meta.get("title", "").strip().strip('"').strip("'")
 
     if meta.get("platform") != "tistory":
