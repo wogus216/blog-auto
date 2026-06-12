@@ -14,35 +14,31 @@ source: ETF CHECK(코스콤) 자금유입 랭킹 1주 기준 (2026.6.12 조회)
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:28px 0;"><div style="background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:20px 14px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);"><div style="font-size:24px;font-weight:800;line-height:1;">$250<span style="font-size:13px;font-weight:600;">억</span></div><div style="font-size:12px;opacity:.92;margin-top:6px;">미국 1위 VOO 주간 유입</div></div><div style="background:linear-gradient(135deg,#059669,#065f46);color:#fff;padding:20px 14px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);"><div style="font-size:24px;font-weight:800;line-height:1.1;">1조<br>612억</div><div style="font-size:12px;opacity:.92;margin-top:6px;">한국 1위 KODEX레버리지</div></div><div style="background:linear-gradient(135deg,#dc2626,#991b1b);color:#fff;padding:20px 14px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);"><div style="font-size:24px;font-weight:800;line-height:1.1;">-22.6<span style="font-size:12px;">%</span></div><div style="font-size:12px;opacity:.92;margin-top:6px;">그 ETF 주간 수익률</div></div><div style="background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;padding:20px 14px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);"><div style="font-size:22px;font-weight:800;line-height:1.1;">지수 vs<br>레버리지</div><div style="font-size:12px;opacity:.92;margin-top:6px;">미·한 베팅 차이</div></div></div>
 
-이 글은 ETF CHECK(코스콤) 자금유입 랭킹(1주 기준, 2026.6.12 조회)을 정리한 정보용이다. **수치는 조회 시점 기준이며 매일 바뀐다.** 레버리지·고위험 상품 언급은 추천이 아니며, 투자 판단은 본인 책임이다.
+이 글은 한국거래소(KRX)·각 운용사 공시를 원자료로 하고, 주간 자금유입 순위는 ETF CHECK(코스콤) 집계를 **참고**해 핵심만 인용·분석한 정보용이다. **수치는 조회 시점(2026.6.12, 1주 기준)이며 매일 바뀐다.** 레버리지·고위험 상품 언급은 추천이 아니며, 투자 판단은 본인 책임이다.
 
-## 미국 1주 자금유입 TOP (S&P500이 쓸어담았다)
+## 미국 — S&P500이 쓸어담았다
 
-| 순위 | ETF (티커) | 1주 유입 | 주간 수익률 |
-| --- | --- | --- | --- |
-| 1 | Vanguard S&P500 (VOO) | $25,008.8M | -2.56% |
-| 2 | SPDR S&P500 (SPY) | $12,284.5M | -2.55% |
-| 3 | iShares 반도체 (SOXX) | $2,959.0M | -2.62% |
-| 4 | Vanguard 전체시장 (VTI) | $2,270.1M | -2.43% |
-| 5 | Direxion 반도체 3X (SOXL) | $2,176.4M | -14.74% |
-| 7 | 단기국채 (SGOV) | $1,732.8M | +0.07% |
-| 10 | 나스닥100 (QQQM) | $1,242.0M | -3.25% |
+지난주 미국 자금유입 상위는 **시장 전체를 담는 인덱스 ETF**가 장악했다. 핵심 3개만 보면:
 
-미국은 **VOO·SPY·VTI 같은 '시장 전체' 인덱스**가 1~4위를 차지했다. 하락하자 우량 지수를 분할매수한 전형적 패턴이다. 반도체(SOXX·SOXL·DRAM)와 **안전자산인 단기국채(SGOV·BIL)**가 동시에 유입된 것도 특징 — 저점매수와 리스크 관리가 공존했다.
+| 순위 | ETF (티커) | 주간 추이 |
+| --- | --- | --- |
+| 1 | Vanguard S&P500 (**VOO**) | 1주 유입 압도적 1위, 약 -2.6% |
+| 2 | SPDR S&P500 (**SPY**) | 2위, 약 -2.6% |
+| 3 | iShares 반도체 (**SOXX**) | 반도체로 자금 유입 |
 
-## 한국 1주 자금유입 TOP (레버리지가 쓸어담았다)
+VOO·SPY 같은 **'시장 전체' 인덱스가 1~2위**를 차지했다. 하락하자 우량 지수를 분할매수한 전형적 패턴이다. 그 뒤로 전체시장(VTI)·반도체 3배(SOXL)도 이어졌는데, 동시에 **단기국채(SGOV·BIL)**까지 상위에 들어온 게 특징 — 저점매수와 리스크 관리가 공존했다.
 
-| 순위 | ETF | 1주 유입 | 주간 수익률 |
-| --- | --- | --- | --- |
-| 1 | KODEX 레버리지 (2X) | +1조 612억 | -22.58% |
-| 2 | KODEX SK하이닉스단일종목레버리지 (2X) | +9,525억 | -20.89% |
-| 3 | KODEX 삼성전자단일종목레버리지 (2X) | +7,147억 | -30.65% |
-| 4 | KODEX 200타겟위클리커버드콜 | +6,938억 | -10.10% |
-| 5 | TIGER 삼성전자단일종목레버리지 (2X) | +5,452억 | -31.31% |
-| 8 | SOL AI반도체TOP2플러스 | +4,070억 | -7.26% |
-| 9 | TIGER 미국S&P500 | +3,711억 | -3.16% |
+## 한국 — 레버리지가 쓸어담았다
 
-한국은 **TOP 7 중 6개가 레버리지**다. 특히 삼성전자·SK하이닉스 단일종목 2배 레버리지가 줄줄이 상위권인데, 같은 주에 그 상품들의 수익률은 **-20~31%**였다. 즉 **반도체가 급락하는 와중에 2배로 베팅해 저점에서 반등을 노린 것**이다.
+같은 하락장에서 한국은 정반대였다. 상위가 거의 다 **2배 레버리지**다. 핵심 3개:
+
+| 순위 | ETF | 주간 추이 |
+| --- | --- | --- |
+| 1 | KODEX 레버리지 (2X) | 1주 1조 원대 유입, 약 -22% |
+| 2 | KODEX SK하이닉스단일종목레버리지 (2X) | 약 -21% |
+| 3 | KODEX 삼성전자단일종목레버리지 (2X) | 약 -31% |
+
+상위권을 **삼성전자·SK하이닉스 단일종목 2배 레버리지**가 줄줄이 채웠는데, 같은 주 그 상품들의 수익률은 **-20~31%**였다. 즉 **반도체가 급락하는 와중에 2배로 베팅해 반등을 노린 것**이다. (그 밖에 커버드콜·SOL AI반도체TOP2·TIGER 미국S&P500 등도 자금이 들어왔다.)
 
 {{broker:stocks_flow_compare}}
 

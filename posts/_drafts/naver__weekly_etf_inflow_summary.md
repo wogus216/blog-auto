@@ -38,4 +38,4 @@ status: draft
 지난주 ETF 자금유입 1위 — 미국 VOO vs 한국 KODEX 레버리지 완전정리
 https://www.onestepblog.info/2026/06/etf-1-voo-kodex.html
 
-투자 판단은 본인 책임이며, 수치는 조회 시점 기준이니 ETF CHECK와 운용사에서 최신 값을 확인하세요.
+원자료는 한국거래소와 각 운용사 공시이며, 주간 순위는 ETF CHECK 집계를 참고해 핵심만 인용했습니다. 투자 판단은 본인 책임이며, 수치는 조회 시점 기준이니 최신 값을 확인하세요.
