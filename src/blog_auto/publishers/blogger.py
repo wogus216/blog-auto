@@ -128,3 +128,57 @@ class BloggerPublisher(BasePublisher):
         status = resp.get("status", "")
         label = {"draft": "임시저장", "schedule": f"예약 ({req.schedule_at})", "publish": "발행"}.get(req.mode, "발행")
         return PublishResult(url=url, ok=True, note=f"{label} 완료 (status={status})")
+
+    def update(
+        self,
+        req: PublishRequest,
+        *,
+        path: str | None = None,
+        post_id: str | None = None,
+    ) -> PublishResult:
+        """기존 발행 글을 수정. path(글 경로/URL) 또는 post_id 로 대상 지정.
+
+        path 예: '/2026/06/xxx.html' 또는 전체 URL(https://...) — host 떼고 경로만 사용.
+        """
+        if not self.blog_id:
+            return PublishResult(url=None, ok=False, note=f"{self.platform} blog_id 미설정.")
+        try:
+            creds = _get_credentials()
+        except Exception as e:
+            return PublishResult(url=None, ok=False, note=f"인증 실패: {e}")
+
+        service = build("blogger", "v3", credentials=creds)
+
+        if not post_id:
+            if not path:
+                return PublishResult(url=None, ok=False, note="update: path 또는 post_id 필요.")
+            # 전체 URL 이면 경로만 추출
+            if path.startswith("http"):
+                from urllib.parse import urlparse
+                path = urlparse(path).path
+            try:
+                got = service.posts().getByPath(blogId=self.blog_id, path=path).execute()
+                post_id = got.get("id")
+            except Exception as e:
+                return PublishResult(url=None, ok=False, note=f"getByPath 실패({path}): {e}")
+            if not post_id:
+                return PublishResult(url=None, ok=False, note=f"path 로 글 못 찾음: {path}")
+
+        html_body = md_lib.markdown(req.body_md, extensions=_MD_EXTENSIONS)
+        html_body = _enhance_images(html_body)
+
+        labels = list(req.tags or [])
+        if len(labels) > 11:
+            print(f"[warn] Blogger label cap: {len(labels)}개 → 11개로 잘라냄.")
+            labels = labels[:11]
+
+        body = {"title": req.title, "content": html_body, "labels": labels}
+        try:
+            resp = (
+                service.posts()
+                .update(blogId=self.blog_id, postId=post_id, body=body)
+                .execute()
+            )
+        except Exception as e:
+            return PublishResult(url=None, ok=False, note=f"update API 오류: {e}")
+        return PublishResult(url=resp.get("url"), ok=True, note="수정 완료 (status=LIVE)")

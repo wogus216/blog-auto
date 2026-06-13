@@ -189,5 +189,48 @@ def update_tistory(
     print(result)
 
 
+@app.command()
+def update_blogger(
+    draft_path: str = typer.Argument(..., help="posts/_drafts/ 의 .md (전체 글)"),
+    path: str = typer.Option("", "--path", help="글 경로(/2026/06/x.html) 또는 전체 URL"),
+    post_id: str = typer.Option("", "--post-id", help="Blogger postId (path 대신 직접 지정)"),
+):
+    """Blogger 발행글 본문 전체 수정. {{broker}}·:::카드 토큰도 재치환. platform별 blog_id 자동."""
+    from pathlib import Path
+    import re
+
+    if not path and not post_id:
+        raise typer.BadParameter("--path(글 URL/경로) 또는 --post-id 중 하나는 필요합니다.")
+
+    text = Path(draft_path).read_text(encoding="utf-8")
+    fm_match = re.match(r"^---\n(.*?)\n---\n\n(.*)$", text, re.DOTALL)
+    if not fm_match:
+        raise typer.BadParameter("frontmatter 없음. (--- ... --- 형식 필요)")
+    fm_raw, body = fm_match.groups()
+    meta: dict[str, str] = {}
+    for line in fm_raw.splitlines():
+        k, _, v = line.partition(":")
+        meta[k.strip()] = v.strip()
+
+    tags = [t.strip().strip("'\"") for t in meta.get("tags", "[]").strip("[]").split(",") if t.strip()]
+    platform_name = meta.get("platform", "blogger")
+    body = inject_broker_assets(body)
+    body = inject_viz_cards(body, theme=theme_for_platform(platform_name))
+    title = meta.get("title", "").strip().strip('"').strip("'")
+
+    req = PublishRequest(
+        title=title, body_md=body, tags=tags, category=meta.get("category", ""), mode="publish"
+    )
+
+    if platform_name == "blogger_stocks":
+        pub = BloggerPublisher(blog_id=config.BLOGGER_STOCKS_BLOG_ID, platform="blogger_stocks")
+    elif platform_name == "blogger_money":
+        pub = BloggerPublisher(blog_id=config.BLOGGER_MONEY_BLOG_ID, platform="blogger_money")
+    else:
+        pub = BloggerPublisher()
+    result = pub.update(req, path=path or None, post_id=post_id or None)
+    print(result)
+
+
 if __name__ == "__main__":
     app()
